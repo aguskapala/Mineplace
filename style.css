@@ -1,0 +1,75 @@
+/* Tambahkan gaya untuk tombol */
+.download-btn {
+    background-color: var(--accent);
+    color: var(--white);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.download-btn:hover {
+    background-color: #28a745; /* Warna hijau lebih gelap saat hover */
+    transform: scale(1.05); /* Efek pembesaran saat hover */
+}
+
+/* Gaya untuk kartu unduhan */
+.download-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.download-card:hover {
+    transform: translateY(-5px); /* Efek mengangkat saat hover */
+}
+
+/* Gaya untuk teks */
+h3 {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+p {
+    color: var(--secondary);
+}
+
+/* Gaya untuk hero section */
+.hero {
+    background: url('minecraft-bg.jpg') center/cover;
+    filter: brightness(70%); /* Gelapkan gambar latar belakang */
+}
+
+/* Gaya untuk footer */
+footer {
+    background-color: var(--background);
+    padding: 20px 0;
+    color: var(--white);
+    text-align: center;
+}
+
+.social-links a {
+    margin: 0 10px;
+    color: var(--white);
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--accent); /* Ubah warna saat hover */
+}
+
+/* Gaya untuk search input */
+.search-container input {
+    border: 2px solid var(--secondary);
+    border-radius: 25px;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.search-container input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 5px rgba(239, 35, 60, 0.5);
+}
