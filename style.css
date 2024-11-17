@@ -16,11 +16,11 @@
 
 /* Gaya untuk kartu unduhan */
 .download-card {
-    background-color: var(--white);
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s;
+    background: linear-gradient(to bottom, white, #333); /* Gradien dari putih ke hitam */
+    border-radius: 15px; 
+    overflow: hidden; 
+    transition: transform 0.3s; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .download-card:hover {
@@ -68,8 +68,34 @@ footer {
     padding: 10px;
     font-size: 1rem;
 }
+body { 
+    background-color: #f0f0f0; /* Ubah menjadi warna abu-abu */
+    color: var(--primary); 
+} 
 
 .search-container input:focus {
     border-color: var(--accent);
     box-shadow: 0 0 5px rgba(239, 35, 60, 0.5);
 }
+.hero {
+    height: 60vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    background: linear-gradient(rgba(43, 45, 66, 0.9), rgba(43, 45, 66, 0.9)), url('minecraft-bg.jpg') center/cover;
+    color: var(--white); 
+    margin-top: 60px; 
+}
+
+.hero-content {
+    background-color: white; /* Mengubah latar belakang menjadi putih */
+    padding: 2rem; /* Menambahkan padding untuk ruang di sekitar teks */
+    border-radius: 15px; /* Menambahkan sudut yang membulat */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Menambahkan bayangan untuk efek kedalaman */
+}
+
+.hero h1, .hero p {
+    color: black; /* Mengubah warna teks menjadi hitam */
+}
+
