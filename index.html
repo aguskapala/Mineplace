@@ -1,265 +1,305 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>MinePlace</title>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <h1 class="animated-text">Welcome to MinePlace</h1> 
-      <style> :root { --primary: #ffffff; --secondary: #b0b0b0; --accent: #30ce58; --background: #3f121212; --white: #f3f3f3; } /* Existing styles... */ 
-      .animated-text { opacity: 0; /* Mulai dengan teks tidak terlihat */ transform: translateY(-20px); /* Posisi awal sedikit di atas */ animation: fadeInUp 1s forwards;
-       /* Panggil animasi */ } @keyframes fadeInUp { to { opacity: 1; /* Akhirnya teks terlihat */ transform: translateY(0); 
-       /* Pindah ke posisi normal */ } } /* Other existing styles... */ </style> <style> 
-       :root { --primary: #2B2D42; --secondary: #8D99AE; --accent: #61e647; --background: #EDF2F4; --white: #e0e0e0; } * 
-       { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; } body { background-color: var(--background); color: var(--primary); } 
-       /* Navbar */ nav { background: var(--white); padding: 1rem 5%; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); } 
-       .nav-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; } .logo 
-       { font-size: 1.5rem; font-weight: 700; color: var(--primary); text-decoration: none; }
-        .nav-links a { color: var(--primary); text-decoration: none; margin-left: 2rem; font-weight: 500; transition: color 0.3s; }
-         .nav-links a:hover { color: var(--accent); } /* Hero Section */ .hero 
-         { height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; background: 
-         linear-gradient(rgba(43, 45, 66, 0.9), rgba(43, 45, 66, 0.9)), url('minecraft-bg.jpg') center/cover;
-          color: var(--white); margin-top: 60px; } .hero h1 { font-size: 3rem; margin-bottom: 1rem; } .hero p { 
-            font-size: 1.2rem; opacity: 0.9; } /* Downloads Section */ .downloads { max-width: 1200px; margin: 4rem auto; padding: 0 5%; } 
-            .downloads-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; } .download-card
-            { background: var(--white); border-radius: 15px; overflow: hidden; transition: transform 0.3s; } .download-card:hover { transform: translateY(-5px); }
-            .card-image { width: 100%; height: 200px; object-fit: cover; } .card-content { padding: 1.5rem; } .card-content h3 { font-size: 1.3rem; margin-bottom: 0.5rem; } 
-            .card-content p { color: var(--secondary); margin-bottom: 1.5rem; font-size: 0.9rem; } .download-btn { display: inline-flex; align-items: center;
-             padding: 0.8rem 1.5rem; background: var(--primary); color: var(--white); text-decoration: none; border-radius: 25px; font-weight: 500; transition: all 0.3s; } 
-             .download-btn i { margin-right: 8px; } .download-btn:hover { background: var(--accent); transform: scale(1.05); } /* Footer */ footer { background:
-              var(--primary); color: var(--white); padding: 3rem 5%; margin-top: 4rem; } .footer-content { max-width: 1200px; margin: 0 auto; text-align: center; }
-               .social-links { margin-top: 1.5rem; } .social-links a { color: var(--white); margin: 0 1rem; font-size: 1.5rem; transition: color 0.3s; } .social-links a:hover {
-                 color: var(--accent); } @media (max-width: 768px) { .nav-content { flex-direction: column; } .nav-links { margin-top: 1rem; } .nav-links a { margin: 0 0.5rem; } 
-                 .hero h1 { font-size: 2rem; } } </style> </head> <body> <nav> <div class="nav-content"> <a href="#" 
-                 class="logo">MinePlace</a> <div class="nav-links"> <a href="#home">Home</a> <a href="#addons">Add-ons</a> <a href="#mods">Mods</a> <a href="#about">About</a>
-                 </div> </div> </nav> <section class="hero"> <div class="hero-content"> <h1>Welcome to MinePlace</h1> <p>Download premium Minecraft add-ons and mods for free | kalian kalau 
-                 klik tombol download tunggu 10 detikan nnt bakal langsung ke mediafire </p> </div> 
-                </section> <!-- Add more download cards as needed --> </div> </section> <footer> <div class="footer-content"> <h3></h3> <div class="social-links">
-                    <footer>
-                        <div class="footer-content">
-                            <h3>Connect With Us</h3>
-                            <div class="social-links">
-                                <a href="https://discord.com/your-discord-link"><i class="fab fa-discord"></i></a>
-                                <a href="https://youtube.com/your-youtube-link"><i class="fab fa-youtube"></i></a>
-                                <a href="https://www.instagram.com/agus_koplang/profilecard/?igsh=b2Q2bWswNG5ma2o0"><i class="fab fa-instagram"></i></a>
-                                <a href="https://twitter.com/your-twitter-link"><i class="fab fa-twitter"></i></a>
-                            </div>
-                        </div>
-                    </footer>
-                </body>
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6388321825644031"
-     crossorigin="anonymous"></script>
-                </body>
-                      
+    <title>MinePlace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+    <style> 
+        :root { 
+            --primary: #2B2D42; 
+            --secondary: #6580ae; 
+            --accent: #61e647; 
+            --background: #EDF2F4; 
+            --white: #e0e0e0; 
+        } 
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Segoe UI', sans-serif; 
+        } 
+        body { 
+            background-color: var(--background); 
+            color: var(--white); 
+        } 
+        /* Navbar */ 
+        nav { 
+            background: var(--white); 
+            padding: 1rem 5%; 
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        } 
+        .nav-content { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        } 
+        .logo { 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            color: var(--primary); 
+            text-decoration: none; 
+        }
+        .nav-links a { 
+            color: var(--primary); 
+            text-decoration: none; 
+            margin-left: 2rem; 
+            font-weight: 500; 
+            transition: color 0.3s; 
+        }
+        .nav-links a:hover { 
+            color: var(--accent); 
+        } 
+        /* Hero Section */ 
+        .hero { 
+            height: 60vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('minecraft-bg.jpg') center/cover;
+            color: var(--white); 
+            margin-top: 60px; 
+        } 
+        .hero h1 { 
+            font-size: 3rem; 
+            margin-bottom: 1rem; 
+        } 
+        .hero p { 
+            font-size: 1.2rem; 
+            opacity: 0.9; 
+        } 
+        body { 
+            background-color: #f0f0f0; /* Ubah menjadi warna abu-abu */
+            color: var(--primary); 
+        } 
+        /* Downloads Section */ 
+        .downloads { 
+            max-width: 1200px; 
+            margin: 4rem auto; 
+            padding: 0 5%; 
+            border-radius: 15px;
+            padding: 1rem;
+        } 
+        .downloads-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2rem; 
+            margin-top: 2rem; 
+        } 
+        .download-card { 
+            background: var(--white); 
+            border-radius: 15px; 
+            overflow: hidden; 
+            transition: transform 0.3s; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0,2);
+        } 
+        .download-card:hover { 
+            transform: translateY(-5px); 
+        }
+        .card-image { 
+            width: 100%; 
+            height: 200px; 
+            object-fit: cover; 
+        } 
+        .card-content { 
+            padding: 1.5rem; 
+        } 
+        .card-content h3 { 
+            font-size: 1.3rem; 
+            margin-bottom: 0.5rem; 
+        } 
+        .card-content p { 
+            color: var(--secondary); 
+            margin-bottom: 1.5rem; 
+            font-size: 0.9rem; 
+        } 
+        .download-btn { 
+            display: inline-flex; 
+            align-items: center;
+            padding: 0.8rem 1.5rem; 
+            background: var(--primary); 
+            color: var(--white); 
+            text-decoration: none; 
+            border-radius: 25px; 
+            font-weight: 500; 
+            transition: all 0.3s; 
+        } 
+        .download-btn i { 
+            margin-right: 8px; 
+        } 
+        .download-btn:hover { 
+            background: var(--accent); 
+            transform: scale(1.05); 
+        } 
+        /* Footer */ 
+        footer { 
+            background: var(--primary); 
+            color: var(--white); 
+            padding: 3rem 5%; 
+            margin-top: 4rem; 
+        } 
+        .footer-content { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            text-align: center; 
+        }
+        .social-links { 
+            margin-top: 1.5rem; 
+        } 
+        .social-links a { 
+            color: var(--white); 
+            margin: 0 1rem; 
+            font-size: 1.5rem; 
+            transition: color 0.3s; 
+        } 
+        .social-links a:hover { 
+            color: var(--accent); 
+        } 
+        @media (max-width: 768px) { 
+            .nav-content { 
+                flex-direction: column; 
+            } 
+            .nav-links { 
+                margin-top: 1rem; 
+            } 
+            .nav-links a { 
+                margin: 0 0.5rem; 
+            } 
+            .hero h1 { 
+                font-size: 2rem; 
+            } 
+        } 
+        .search-container {
+    position: relative;
+    max-width: 600px; /* Atur lebar maksimum */
+    margin: 2rem auto; /* Pusatkan di halaman */
+}
 
-            <!-- Tambahkan ini sebelum downloads-grid -->
+#searchInput {
+    width: 100%;
+    padding: 1rem 2rem; /* Padding yang lebih besar untuk ruang */
+    border: 2px solid var(--secondary); /* Border yang lebih tebal */
+    border-radius: 30px; /* Sudut yang lebih membulat */
+    font-size: 1rem; /* Ukuran font yang lebih besar */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Transisi halus */
+}
 
-            <script>
-                function searchFunction() {
-                    // Mendapatkan input pencarian
-                    const input = document.getElementById('searchInput');
-                    const filter = input.value.toLowerCase();
-                    const cards = document.querySelectorAll('.download-card');
-        
-                    // Menyembunyikan atau menampilkan kartu berdasarkan input pencarian
-                    cards.forEach(card => {
-                        const title = card.getAttribute('data-title').toLowerCase();
-                        if (title.includes(filter)) {
-                            card.style.display = '';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                }
-            </script>
-            <!-- Bagian sebelumnya tetap sama, tambahkan ini di dalam section downloads -->
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Search for add-ons or mods..." onkeyup="searchFunction()">
+#searchInput:focus {
+    border-color: var(--accent); /* Ganti warna border saat fokus */
+    box-shadow: 0 0 5px rgba(97, 230, 71, 0.5); /* Tambahkan shadow saat fokus */
+    outline: none; /* Hilangkan outline default */
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px; /* Jarak dari kiri */
+    top: 50%; /* Pusatkan secara vertikal */
+    transform: translateY(-50%); /* Pusatkan ikon secara vertikal */
+    color: var(--secondary); /* Warna ikon */
+    font-size: 1.2rem; /* Ukuran ikon */
+}
+.search-btn {
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 30px;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    margin-left: 10px; /* Jarak antara input dan tombol */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.search-btn:hover {
+    background-color: var(--accent);
+    transform: scale(1.05);
+}
+.hero {
+    height: 60vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    background: linear-gradient(rgba(120, 119, 119, 0.9), rgba(255, 255, 255, 0.9)), url('minecraft-bg.jpg') center/cover;
+    color: var(--white); 
+    margin-top: 60px; 
+}
+
+.hero-content {
+    background-color: white; /* Mengubah latar belakang menjadi putih */
+    padding: 2rem; /* Menambahkan padding untuk ruang di sekitar teks */
+    border-radius: 15px; /* Menambahkan sudut yang membulat */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Menambahkan bayangan untuk efek kedalaman */
+}
+
+.hero h1, .hero p {
+    color: black; /* Mengubah warna teks menjadi hitam */
+}
+    </style> 
+</head> 
+<body> 
+    <nav> 
+        <div class="nav-content"> 
+            <a href="#" class="logo">aguskapang ni bos</a> 
+            <div class="nav-links"> 
+                <a href="#rumah">rumah</a> 
+                <a href="#aduhh">aduhh</a> 
+                <a href="#mood">Mood</a> 
+                <a href="#apaya">apakek</a>
+            </div> 
+        </div> 
+    </nav> 
+    <section class="hero"> 
+        <div class="hero-content"> 
+            <h1>eh yo wasap di web agus coy</h1> 
+            <p>download addon minikraf di sini aja cuy karna gratis cukup bayar dengan pencet iklan aja kalo iklas🧏‍♂️🫡 </p> 
+        </div> 
+    </section> 
+    <section class="downloads"> 
+        <div class="search-container"> 
+            <input type="text" id="searchInput" placeholder="Search for add-ons or mods..." onkeyup="searchFunction()"> 
+        </div> 
+        <div class="downloads-grid">
+            <!-- Card 1 -->
+            <div class="download-card" data-title="World Utilities Add-On">
+                <img src="download.png" alt="World utilities" class="card-image">
+                <div class="card-content">
+                    <h3>World Utilities Add-On</h3>
+                    <p>Enhanced world management tools for a better Minecraft experience.</p>
+                    <a href="https://www.mediafire.com/file/2ajlj42kxzz2xgw/World_Utilities_Add-On_%2528Add-on%2529.mcaddon/file" class="download-btn">
+                        <i class="fas fa-download"></i>
+                        Download
+                    </a>
+                </div>
             </div>
-            <style>
-                /* Existing styles... */
-            
-                .search-container {
-                    max-width: 600px; /* Set a maximum width */
-                    margin: 2rem auto; /* Center the container */
-                    display: flex; /* Use flexbox for alignment */
-                }
-            
-                .search-container input {
-                    flex: 1; /* Allow the input to take up available space */
-                    padding: 0.8rem 1.5rem; /* Add padding for a comfortable feel */
-                    border: 1px solid var(--secondary); /* Border color */
-                    border-radius: 25px; /* Rounded corners */
-                    font-size: 1rem; /* Font size */
-                    transition: border-color 0.3s; /* Transition effect for border color */
-                }
-            
-                .search-container input::placeholder {
-                    color: var(--secondary); /* Placeholder color */
-                    opacity: 0.7; /* Slightly transparent */
-                }
-            
-                .search-container input:focus {
-                    outline: none; /* Remove default outline */
-                    border-color: var(--accent); /* Change border color on focus */
-                    box-shadow: 0 0 5px rgba(239, 35, 60, 0.5); /* Add shadow on focus */
-                }
-            </style>
-<section class="downloads">
-    <div class="downloads-grid">
-        <!-- Card 1 -->
-        <div class="download-card" data-title="World Utilities Add-On">
-            <image src="download.png" alt="World utilities" class="card-image">
-    <div class="card-content">
-        <h3>World Utilities Add-On</h3>
-        <p>Enhanced world management tools for a better Minecraft experience.</p>
-        <a href="https://www.mediafire.com/file/2ajlj42kxzz2xgw/World_Utilities_Add-On_%2528Add-on%2529.mcaddon/file" class="download-btn">
-            <i class="fas fa-download"></i>
-            Download
-        </a>
-    </div>
-</div>
-        <!-- Card 2 -->
-        <div class="download-card" data-title="Dwellers Addon">
-            <img src="Screenshot 2024-11-02 152859.png" alt="Dwellers Addon" class="card-image">
-            <div class="card-content">
-                <h3>Dwellers Addon</h3>
-                <p>Transform your world into scary.</p>
-                <a href="https://www.mediafire.com/file/uj2inl08nevgg03/DWELLERS_Add-On_by_Panascais_%2528Add-on%2529.mcaddon/file" class="download-btn">
-                    <i class="fas fa-download"></i>
-                    Download
-                </a>
+            <!-- Card 2 -->
+            <div class="download-card" data-title="Dwellers Addon">
+                <img src="Screenshot 2024-11-02 152859.png" alt="Dwellers Addon" class="card-image">
+                <div class="card-content">
+                    <h3>Dwellers Addon</h3>
+                    <p>Transform your world into scary.</p>
+                    <a href="https://www.mediafire.com/file/uj2inl08nevgg03/DWELLERS_Add-On_by_Panascais_%2528Add-on%2529.mcaddon/file" class="download-btn">
+                        <i class="fas fa-download"></i>
+                        Download
+                    </a>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="download-card" data-title="Realism 1 4">
+                <img src="Realism.png" alt="Realism 1 4" class="card-image">
+                <div class="card-content">
+                    <h3>Realism 1 4</h3>
+                    <p>Add beautiful world to Your Minecraft World.</p>
+                    <a href="https://www.mediafire.com/file/7w0qmopkvi7pm5s/Realism_%2528Texture%2529.mcaddon/file" class="download-btn">
+                        <i class="fas fa-download"></i>
+                        Download
+                    </a>
+                </div>
             </div>
         </div>
-
-        <!-- Card 3 -->
-        <div class="download-card" data-title="Realism 1 4">
-            <img src="Realism.png" alt="Realism 1 4" class="card-image">
-            <div class="card-content">
-                <h3>Realism 1 4</h3>
-                <p>Add beautiful world to Your Minecraft World.</p>
-                <a href="https://www.mediafire.com/file/7w0qmopkvi7pm5s/Realism_%2528Texture%2529.mcaddon/file" class="download-btn">
-                    <i class="fas fa-download"></i>
-                    Download
-                </a>
-            </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="download-card" data-title="Transformers">
-            <img src="Transformers.png" alt="Transformers" class="card-image">
-            <div class="card-content">
-                <h3>Transformers</h3>
-                <p>There is more than meets the eye in this epic Transformers Adventure Map!.</p>
-                <a href="https://www.mediafire.com/file/61rzenbo4zpxx5l/Transformers_%2528world_template%2529.mcworld/file" class="download-btn">
-                    <i class="fas fa-download"></i>
-                    Download
-                </a>
-            </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="download-card" data-title="Essentials">
-            <img src="Essentials.png" alt="Essentials" class="card-image">
-            <div class="card-content">
-                <h3>Essentials</h3>
-                <p>Essentials additions to Minecraft!.</p>
-                <a href="https://www.mediafire.com/file/8d34350to0sn9ex/Essentials_%2528Add-on%2529.mcaddon/file" class="download-btn">
-                    <i class="fas fa-download"></i>
-                    Download
-                </a>
-            </div>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="download-card" data-title="Damage Indicators Addon">
-            <img src="Damage Indicator.png" alt="Damage Indicators Addon" class="card-image">
-            <div class="card-content">
-                <h3>Damage Indicators Addon</h3>
-                <p>Add Healt bar to mobs on minecraft world.</p>
-                <a href="https://www.mediafire.com/file/x8tadd6k5tgkhh3/Damage_Indicators_Add-On_%2528Add-on%2529.mcaddon/file" class="download-btn">
-                    <i class="fas fa-download"></i>
-                    Download
-                </a>
-            </div>
-        </div>
-
-        <!-- Card 7 -->
-        <div class="download-card" data-title="Weapons+ Addon">
-            <img src="Weapons+.png" alt="Weapons+ Addon" class="card-image">
-            <div class="card-content">
-                <h3>Weapons+ Addon</h3>
-                <p>Add new weapons to your Minecraft world.</p>
-                <a href="https://www.mediafire.com/file/3zy5koq1sw371qo/Weapons%252B_Add-On_%2528Add-on%2529.mcaddon/file" class="download-btn">
-                    <i class="fas fa-download"></i>
-                    Download
-                </a>
-            </div>
-        </div>
-
-        <!-- Card 8 -->
-        <div class="download-card" data-title="Realistic Biome">
-            <img src="Realistic biome.png" alt="Realistic Biome" class="card-image">
-            <div class="card-content">
-                <h3>Realistic Biome add-on</h3>
-                <p>New Biome and beutiful shaders.</p>
-                <a href="https://www.mediafire.com/file/lrim78b4i9e5ej2/Realistic_Biomes_Add-On_%2528Add-on%2529.mcaddon/file" class="download-btn">
-                    <i class="fas fa-download"></i>
-                    Download
-                </a>
-            </div>
-        </div>
-
-        <!-- Card 9 -->
-        <div class="download-card" data-title="Forest Craft Addon">
-            <img src="Forest Craft.png" alt="Forest Craft Addon" class="card-image">
-            <div class="card-content">
-                <h3>Forest Craft Addon</h3>
-                <p>Forest Craft Addon adds more trees to survival world.</p>
-                <a href="https://www.mediafire.com/file/4yrydbpowbjqn31/Forest_Craft_Add-On_%2528Add-on%2529.mcaddon/file" class="download-btn">
-                    <i class="fas fa-download"></i>
-                    Download
-                </a>
-            </div>
-        </div>
-
-        <!-- Card 10 -->
-        <div class="download-card" data-title="Rpg Skills">
-            <img src="Rpg.png" alt="Rpg Skills" class="card-image">
-            <div class="card-content">
-                <h3>Rpg Skills</h3>
-                <p>Enhance your Work with New Rpg Skills.</p>
-                <a href="https://www.mediafire.com/file/g9zx3px8e91p9ad/RPG_Skills_Add-On_%2528Add-on%2529.mcaddon/file" class="download-btn">
-                    <i class="fas fa-download"></i>
-                    Download
-                </a>
-            </div>
-        </div>
-
-        <!-- Card 11 -->
-        <div class="download-card" data-title="Dynamic Light Add-on">
-            <img src="Dynamic Light.png" alt="Dynamic Light Add-on" class="card-image">
-            <div class="card-content">
-                <h3>Dynamic Light Add-on</h3>
-                <p>Holding Bright New colorful item Now light up Your surroundings!.</p>
-                <a href="https://www.mediafire.com/file/3245w5avfv35tmk/Dynamic_Light_Add-on_%2528Add-on%2529.mcaddon/file" class="download-btn">
-                    <i class="fas fa-download"></i>
-                    Download
-                </a>
-            </div>
-        </div>
-
-        <!-- Card 12 -->
-        <div class="download-card" data-title="Pirate Era Add-On">
-            <img src="Pirate Era.png" alt="Pirate Era Add-On" class="card-image">
-            <div class="card-content">
-                <h3>Pirate Era Add-On</h3>
-                <p>Add pirate ships to your world with this add-on!.</p>
-                <a href="https://www.mediafire.com/file/k0iok5t8btyp3it/Pirate_Era_%2528Add-on%2529.mcaddon/file" class="download-btn">
-                    <i class="fas fa-download"></i>
-                    Download
-                </a>
-            </div>
-        </div>
-       
-    </div>
-</div>
-    </footer>
-</body>
-</html>
