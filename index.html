@@ -13,10 +13,10 @@
     </body>
     <style> 
         :root { 
-            --primary: #2B2D42; 
-            --secondary: #6580ae; 
+            --primary: #454350; 
+            --secondary: #939393; 
             --accent: #61e647; 
-            --background: #EDF2F4; 
+            --background: #a2a5a6; 
             --white: #e0e0e0; 
         } 
         * { 
@@ -74,8 +74,9 @@
             margin-top: 60px; 
         } 
         .hero h1 { 
-            font-size: 3rem; 
-            margin-bottom: 1rem; 
+            font-size: 3rem;
+        margin-bottom: 1rem;
+        color: #FFFFFF; /* Ubah warna menjadi putih */
         } 
         .hero p { 
             font-size: 1.2rem; 
@@ -93,39 +94,56 @@
             border-radius: 15px;
             padding: 1rem;
         } 
-        .downloads-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 2rem; 
-            margin-top: 2rem; 
-        } 
-        .download-card { 
-            background: var(--white); 
-            border-radius: 15px; 
-            overflow: hidden; 
-            transition: transform 0.3s; 
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0,2);
-        } 
-        .download-card:hover { 
-            transform: translateY(-5px); 
+        .downloads-grid {
+        display: grid; 
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Mengatur ukuran kolom */
+        gap: 20px; /* Jarak antar card */
+        margin-top: 20px; /* Jarak atas untuk grid */
         }
-        .card-image { 
-            width: 100%; 
-            height: 200px; 
-            object-fit: cover; 
-        } 
-        .card-content { 
-            padding: 1.5rem; 
-        } 
-        .card-content h3 { 
-            font-size: 1.3rem; 
-            margin-bottom: 0.5rem; 
-        } 
-        .card-content p { 
-            color: var(--secondary); 
-            margin-bottom: 1.5rem; 
-            font-size: 0.9rem; 
-        } 
+        .download-card {
+        background: var(--white);
+        border-radius: 15px;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        border: 1px solid #ccc;
+        width: 100%; /* Atur lebar card */
+        max-width: 300px; /* Atur lebar maksimum card */
+        }
+
+        .download-card:hover {
+        transform: translateY(-5px); /* Mengangkat kartu sedikit saat hover */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Menambahkan bayangan yang lebih dalam saat hover */
+        }
+
+        .card-image {
+        width: 100%; 
+        height: 200px; /* Atur tinggi gambar */
+        object-fit: cover; /* Pastikan gambar terpotong dengan baik */
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Pastikan jarak antara elemen */
+        flex-grow: 1; /* Membuat konten mengisi ruang yang tersisa */
+        height: 100%; /* Pastikan konten mengisi tinggi kartu */
+        }
+
+        .card-content h3 {
+            margin: 0 0 0.5rem 0; /* Atur margin untuk judul */ 
+        }
+
+        .card-content p {
+        margin: 0; /* Hilangkan margin untuk paragraf */
+        flex-grow: 1; /* Memastikan paragraf tidak menyebabkan kartu memanjang */
+        }
+
         .download-btn { 
             display: inline-flex; 
             align-items: center;
@@ -189,31 +207,23 @@
 }
 
 #searchInput {
-    width: 100%;
-    padding: 1rem 2rem; /* Padding yang lebih besar untuk ruang */
-    border: 2px solid var(--secondary); /* Border yang lebih tebal */
+    width: calc(100% - 120px); /* Atur lebar input agar sesuai dengan tombol */
+    padding: 1rem 2rem; /* Padding untuk input */
+    border: 2px solid #6580ae; /* Border yang lebih tebal */
     border-radius: 30px; /* Sudut yang lebih membulat */
     font-size: 1rem; /* Ukuran font yang lebih besar */
     transition: border-color 0.3s, box-shadow 0.3s; /* Transisi halus */
 }
 
 #searchInput:focus {
-    border-color: var(--accent); /* Ganti warna border saat fokus */
+    border-color: #61e647; /* Ganti warna border saat fokus */
     box-shadow: 0 0 5px rgba(97, 230, 71, 0.5); /* Tambahkan shadow saat fokus */
     outline: none; /* Hilangkan outline default */
 }
 
-.search-icon {
-    position: absolute;
-    left: 15px; /* Jarak dari kiri */
-    top: 50%; /* Pusatkan secara vertikal */
-    transform: translateY(-50%); /* Pusatkan ikon secara vertikal */
-    color: var(--secondary); /* Warna ikon */
-    font-size: 1.2rem; /* Ukuran ikon */
-}
 .search-btn {
-    background-color: var(--primary);
-    color: var(--white);
+    background-color: #2B2D42; /* Warna latar belakang tombol */
+    color: #e0e0e0; /* Warna teks tombol */
     border: none;
     border-radius: 30px;
     padding: 0.8rem 1.5rem;
@@ -223,8 +233,8 @@
 }
 
 .search-btn:hover {
-    background-color: var(--accent);
-    transform: scale(1.05);
+    background-color: #61e647; /* Ganti warna latar belakang saat hover */
+    transform: scale(1.05); /* Efek zoom saat hover */
 }
 .hero {
     height: 60vh; 
@@ -238,14 +248,19 @@
 }
 
 .hero-content {
-    background-color: white; /* Mengubah latar belakang menjadi putih */
-    padding: 2rem; /* Menambahkan padding untuk ruang di sekitar teks */
-    border-radius: 15px; /* Menambahkan sudut yang membulat */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Menambahkan bayangan untuk efek kedalaman */
+    display: flex; /* Menggunakan flexbox */
+    flex-direction: column; /* Mengatur arah flex menjadi kolom */
+    align-items: center; /* Mengatur item flex untuk berpusat secara horizontal */
+    justify-content: center; /* Mengatur item flex untuk berpusat secara vertikal */
+    text-align: center; /* Mengatur teks agar berada di tengah */
+    background-color: transparent; /* Menghilangkan latar belakang */
+    padding: 0; /* Menghapus padding */
+    border-radius: 0; /* Menghapus sudut yang membulat */
+    box-shadow: none; /* Menghapus bayangan */
 }
 
 .hero h1, .hero p {
-    color: rgb(101, 109, 119); /* Mengubah warna teks menjadi hitam */
+    color: rgb(48, 48, 48); /* Mengubah warna teks menjadi hitam */
 }
 .tiktok-logo {
     font-size: 3rem; /* Ukuran ikon yang lebih kecil */
@@ -277,12 +292,12 @@
 <body> 
     <nav> 
         <div class="nav-content"> 
-            <a href="#" class="logo">aguskapang ni bos | yang di kiri jangan di pencet😊🫡</a> 
+            <a href="#" class="logo">Minecraft Modz</a> 
             <div class="nav-links"> 
-                <a href="#rumah">Tentang agus</a> 
-                <a href="#aduhh">rumah agus</a> 
-                <a href="#mood">hobi agus</a> 
-                <a href="#apaya">motor agus</a>
+                <a href="#rumah"></a> 
+                <a href="#aduhh"></a> 
+                <a href="#mood"></a> 
+                <a href="#apaya"></a>
             </div> 
         </div> 
     </nav> 
@@ -305,14 +320,15 @@
     <section class="downloads"> 
         <div class="search-container"> 
             <input type="text" id="searchInput" placeholder="Search for add-ons or mods..." onkeyup="searchFunction()"> 
-        </div> 
+        </div>
+        
         <div class="downloads-grid">
             <!-- Card 1 -->
             <div class="download-card" data-title="World Utilities Add-On">
-                <img src="download.png" alt="World utilities" class="card-image">
+                <img src="download.png" alt="World Utilities" class="card-image">
                 <div class="card-content">
                     <h3>World Utilities Add-On</h3>
-                    <p>nanti kalo lu download adon ini jadi ada pickaxe mining 3x3 cuy😱.</p>
+                    <p>Nanti kalo lu download adon ini jadi ada pickaxe mining 3x3 cuy😱.</p>
                     <a href="World Utilities Add-On (Add-on).mcaddon" class="download-btn">
                         <i class="fas fa-download"></i>
                         Download
@@ -336,11 +352,47 @@
                 <img src="Realism.png" alt="Realism 1 4" class="card-image">
                 <div class="card-content">
                     <h3>Realism 1 4</h3>
-                    <p>kalo lu download mod ini menkrep kalen jadi lebih menarik dan ada bangunan tambahan 😱.</p>
-                    <a href="Realism (Texture).mcaddon" class="download-btn">
+                    <p>kalo lu download mod ini kelen menkrep kalen jadi lebih menarik dan ada bangunan tambahan 😱.</p>
+                    <a href="https://www.mediafire.com/file/7w0qmopkvi7pm5s/Realism_%2528Texture%2529.mcaddon/file" class="download-btn">
                         <i class="fas fa-download"></i>
                         Download
                     </a>
                 </div>
             </div>
-        </div>
+            <!-- Card 4 -->
+            <div class="download-card" data-title="Magic Spells Add-On">
+                <img src="Pirate Era.png" alt="Magic Spells Add-On" class="card-image">
+                <div class="card-content">
+                    <h3>Pirate era add-on</h3>
+                    <p>pirate era, addon ini menambahkan kapal dan mekanik lainnya di world lu⭐🏴‍☠️! ✨</p>
+                    <a href="Pirate Era (Add-on).mcaddon" class="download-btn">
+                        <i class="fas fa-download"></i>
+                        Download
+                    </a>
+                </div>
+            </div>
+            <!-- Card 5 (New) -->
+            <div class="download-card" data-title="Skyblock Survival Add-On">
+                <img src="Forest Craft.png" alt="Skyblock Survival Add-On" class="card-image">
+                <div class="card-content">
+                    <h3>Forest craft add-on</h3>
+                    <p>Forest adon, di adon ini di world kalian ada pohon baru dan bisa crafting beberapa jenis crafting di world kalian!🌳🌲</p>
+                    <a href="Forest Craft Add-On (Add-on).mcaddon" class="download-btn">
+                        <i class="fas fa-download"></i>
+                        Download
+                    </a>
+                </div>
+            </div>
+            <!-- Card 6 (New) -->
+            <div class="download-card" data-title="Fantasy Creatures Add-On">
+                <img src="Transformers.png" alt="Fantasy Creatures Add-On" class="card-image">
+                <div class="card-content">
+                    <h3>Transformers</h3>
+                    <p>di transformer kalian bakal jadi robot sesuka kalian kaya bumblebe optimus prime dan itu melawan monster jahat di kota!🤖😱</p>
+                    <a href="Transformers (world_template).mcWorld" class="download-btn">
+                        <i class="fas fa-download"></i>
+                        Download
+                    </a>
+                </div>
+            </div>
+        </div>  
