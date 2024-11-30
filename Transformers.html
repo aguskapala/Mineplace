@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformers</title>
+    <h2 class="judul">Selamat Datang di Transformers</h2>
+    <style>
+        @font-face {
+            font-family: 'Minecraft'; /* Nama font yang akan digunakan */
+            src: url('Minecraft.ttf') format('truetype'); /* Ganti dengan path yang sesuai */
+        }
+        body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #eaeaea;
+        color: #333;
+        }
+        .judul {
+        text-align: center; /* Memusatkan teks */
+        font-size: 2em; /* Ukuran font yang lebih besar */
+        font-weight: bold; /* Membuat teks lebih tebal */
+        color: #424242; /* Warna teks */
+        margin-top: 20px; /* Jarak atas */
+        margin-bottom: 20px; /* Jarak bawah */
+        border-bottom: 2px solid #9b9b9b; /* Garis bawah */
+        padding-bottom: 10px; /* Jarak bawah garis */
+        }
+        header {
+            background: #424242;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .container {
+        width: 90%;
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        }
+        h2 {
+        color: #424242;
+        margin-top: 20px;
+        border-bottom: 2px solid #9b9b9b;
+        padding-bottom: 5px;
+        }
+        p {
+            line-height: 1.6;
+            margin: 15px 0;
+        
+        }
+        .video-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .video-container iframe {
+            width: 100%;
+            max-width: 600px;
+            height: 315px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #333;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .image-gallery {
+        display: flex;
+        justify-content: flex-start;
+        gap: 15px;
+        margin-top: 10px;
+        overflow-x: auto; /* Memungkinkan scroll horizontal */
+        }
+        .image-gallery::-webkit-scrollbar {
+        height: 8px; /* Tinggi scrollbar */
+        }
+
+        .image-gallery::-webkit-scrollbar-thumb {
+            background: #888; /* Warna scrollbar */
+            border-radius: 10px; /* Sudut scrollbar */
+        }
+
+        .image-gallery::-webkit-scrollbar-thumb:hover {
+            background: #555; /* Warna scrollbar saat hover */
+        }
+        .image-gallery img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        transition: transform 0.3s;
+        }
+        .image-gallery img:hover {
+            transform: scale(1.05); /* Efek zoom saat hover */
+        }
+        button {
+        margin: 10px; 
+        padding: 10px 20px; 
+        cursor: pointer; 
+        background-color: #424242; 
+        color: white; 
+        border: none; 
+        border-radius: 5px; 
+        transition: background-color 0.3s;
+        }
+
+        button:hover {
+        background-color: #555; /* Mengubah warna saat hover */
+        }
+
+        @keyframes slide{
+        0%{
+            transform: translateX(0);
+        }
+        25%{
+            transform: translateX(0);
+        }
+        30%{
+            transform: translateX(-100%);
+        }
+        50%{
+            transform: translateX(-100%);
+        }
+        55%{
+            transform: translateX(-200%);
+        }
+        75%{
+            transform: translateX(-200%);
+        }
+        80%{
+            transform: translateX(-300%);
+        }
+        100%{
+            transform: translateX(-300%);
+        }
+    }
+    img{
+        width: 100%;
+    }
+    .download-button {
+    margin-top: 10px; /* Jarak antara video dan tombol */
+    padding: 10px 20px; /* Ukuran tombol */
+    font-size: 1em; /* Ukuran font tombol */
+    cursor: pointer;
+    background-color: #424242;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    }
+
+    .download-button:hover {
+    background-color: #555; /* Warna saat hover */
+    }
+
+    </style>
+    
+    <div class="container">
+        <h2>Deskripsi</h2>
+        <p>Transformers Addon untuk Minecraft adalah modifikasi yang memungkinkan pemain untuk membawa elemen-elemen dari dunia Transformers ke dalam permainan Minecraft. Dengan addon ini, pemain dapat berinteraksi dengan robot-robot yang bisa berubah bentuk, bertransformasi menjadi kendaraan, dan berpartisipasi dalam pertarungan epik antara faksi Autobots dan Decepticons. Biasanya, 
+            Transformers Addon mengubah cara bermain dan memberikan pengalaman yang lebih imersif dengan fitur-fitur unik..</p>
+    
+        <h2>Fungsi Utama</h2>
+        <ul>
+            <li>Autobots: Pemain bisa mengakses karakter-karakter ikonik dari Autobots, seperti Optimus Prime, Bumblebee, Ratchet, Jazz, dan lain-lain. Setiap karakter ini memiliki kekuatan dan kemampuan unik..</li>
+            <li>Transformasi Dinamis: Pemain dapat mengubah bentuk karakter mereka untuk mengeksplorasi dunia Minecraft dengan cara yang berbeda, seperti berlari lebih cepat atau terbang di langit.</li>
+        </ul>
+    
+        <h2>Fitur-Fitur</h2>
+        <ul>
+            <li><strong>Karakter Transformers</strong>: Pemain bisa mengakses karakter-karakter ikonik dari Autobots, seperti Optimus Prime, Bumblebee, Ratchet, Jazz, dan lain-lain. Setiap karakter ini memiliki kekuatan dan kemampuan unik.</li>
+            <li><strong>Kemampuan Bertransformasi</strong>: Salah satu fitur utama dari addon ini adalah kemampuan karakter-karakter Transformers untuk bertransformasi dari robot menjadi kendaraan, seperti mobil, pesawat, atau bahkan pesawat luar angkasa</li>
+            <li><strong>Pertempuran Epik</strong>:  Setiap karakter Transformer biasanya dilengkapi dengan kemampuan khusus atau senjata ikonik, seperti senapan laser, pedang energi, atau serangan khusus lainnya yang dapat digunakan untuk bertempur melawan musuh.</li>
+            <li><strong>Kendaraan dan Kendali</strong>: Transmisi Kendaraan: Setiap kendaraan yang muncul bisa memiliki kecepatan dan kontrol yang berbeda, tergantung pada karakter yang bertransformasi.</li>
+        </ul>
+    
+        <h2>Gambarnya</h2>
+        <div class="image-gallery">
+            <img src="Weapons+.png" alt="Vein Miner Feature">
+            <img src="Screenshot 2024-11-02 152859.png" alt="Tree Capitate Feature">
+            <img src="Forest Craft.png" alt="Safari Nets Feature">
+            <img src="Forest Craft.png" alt="Safari Nets Feature">
+        </div>
+        
+
+        <h2>Vidionya</h2>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/watch?v=n1nW1WcfZTg" allowfullscreen></iframe>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="Transformers (world_template).mcWorld" download>
+                <button>Download</button>
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Transformers. Semua hak dilindungi.</p>
+    </footer>
+
+    
+    </script>
+    </body>
+    </html>
