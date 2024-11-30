@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realism 1.4</title>
+    <h2 class="judul">Selamat Datang di Realism 1.4</h2>
+    <style>
+        @font-face {
+            font-family: 'Minecraft'; /* Nama font yang akan digunakan */
+            src: url('Minecraft.ttf') format('truetype'); /* Ganti dengan path yang sesuai */
+        }
+        body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #eaeaea;
+        color: #333;
+        }
+        .judul {
+        text-align: center; /* Memusatkan teks */
+        font-size: 2em; /* Ukuran font yang lebih besar */
+        font-weight: bold; /* Membuat teks lebih tebal */
+        color: #424242; /* Warna teks */
+        margin-top: 20px; /* Jarak atas */
+        margin-bottom: 20px; /* Jarak bawah */
+        border-bottom: 2px solid #9b9b9b; /* Garis bawah */
+        padding-bottom: 10px; /* Jarak bawah garis */
+        }
+        header {
+            background: #424242;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .container {
+        width: 90%;
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        }
+        h2 {
+        color: #424242;
+        margin-top: 20px;
+        border-bottom: 2px solid #9b9b9b;
+        padding-bottom: 5px;
+        }
+        p {
+            line-height: 1.6;
+            margin: 15px 0;
+        
+        }
+        .video-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .video-container iframe {
+            width: 100%;
+            max-width: 600px;
+            height: 315px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #333;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .image-gallery {
+        display: flex;
+        justify-content: flex-start;
+        gap: 15px;
+        margin-top: 10px;
+        overflow-x: auto; /* Memungkinkan scroll horizontal */
+        }
+        .image-gallery::-webkit-scrollbar {
+        height: 8px; /* Tinggi scrollbar */
+        }
+
+        .image-gallery::-webkit-scrollbar-thumb {
+            background: #888; /* Warna scrollbar */
+            border-radius: 10px; /* Sudut scrollbar */
+        }
+
+        .image-gallery::-webkit-scrollbar-thumb:hover {
+            background: #555; /* Warna scrollbar saat hover */
+        }
+        .image-gallery img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        transition: transform 0.3s;
+        }
+        .image-gallery img:hover {
+            transform: scale(1.05); /* Efek zoom saat hover */
+        }
+        button {
+        margin: 10px; 
+        padding: 10px 20px; 
+        cursor: pointer; 
+        background-color: #424242; 
+        color: white; 
+        border: none; 
+        border-radius: 5px; 
+        transition: background-color 0.3s;
+        }
+
+        button:hover {
+        background-color: #555; /* Mengubah warna saat hover */
+        }
+
+        @keyframes slide{
+        0%{
+            transform: translateX(0);
+        }
+        25%{
+            transform: translateX(0);
+        }
+        30%{
+            transform: translateX(-100%);
+        }
+        50%{
+            transform: translateX(-100%);
+        }
+        55%{
+            transform: translateX(-200%);
+        }
+        75%{
+            transform: translateX(-200%);
+        }
+        80%{
+            transform: translateX(-300%);
+        }
+        100%{
+            transform: translateX(-300%);
+        }
+    }
+    img{
+        width: 100%;
+    }
+    .download-button {
+    margin-top: 10px; /* Jarak antara video dan tombol */
+    padding: 10px 20px; /* Ukuran tombol */
+    font-size: 1em; /* Ukuran font tombol */
+    cursor: pointer;
+    background-color: #424242;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    }
+
+    .download-button:hover {
+    background-color: #555; /* Warna saat hover */
+    }
+
+    </style>
+    
+    <div class="container">
+        <h2>Deskripsi</h2>
+        <p>Addon Realism 1.4 untuk Minecraft adalah modifikasi yang dirancang untuk membuat pengalaman bermain Minecraft menjadi lebih nyata, dengan menambahkan berbagai elemen realistis ke dalam game. Versi 1.4 dari addon ini melanjutkan pengembangan dan peningkatan fitur yang 
+            bertujuan untuk meningkatkan atmosfer dan pengalaman visual serta gameplay.!.</p>
+    
+        <h2>Fungsi Utama</h2>
+        <ul>
+            <li>Tekstur HD: ini menambahkan tekstur yang lebih halus dan detail untuk berbagai blok dan item dalam permainan. Semua elemen dari dunia Minecraft, mulai dari 
+                tanah, batu, hingga air, memiliki kualitas tekstur yang lebih realistis..</li>
+            <li>Pencahayaan lebih baik: Peningkatan pada sistem pencahayaan dan bayangan, yang memberikan efek cahaya alami dan bayangan yang lebih realistis, 
+                seperti perubahan intensitas cahaya saat matahari terbenam dan terbit..</li>
+            <li>Efek Cuaca dan Atmosfer: Ada peningkatan pada efek cuaca seperti hujan, salju, kabut, dan efek badai, memberikan nuansa yang lebih hidup dan sesuai dengan kondisi cuaca dunia nyata.</li>
+        </ul>
+    
+        <h2>Fitur-Fitur</h2>
+        <ul>
+            <li><strong>Sistem Cuaca dan Efek Atmosfer</strong>: Menambah kualitas tekstur yang lebih halus dan detail untuk berbagai blok dan item di dunia Minecraft, seperti batu, tanah, pasir, dan lain-lain..</li>
+            <li><strong>Animasi yang Lebih Halus</strong>:  Penambahan efek cuaca yang lebih realistis, termasuk hujan, salju, dan kabut, yang mempengaruhi pandangan pemain dan menciptakan suasana yang lebih hidup.</li>
+            <li><strong>Peningkatan Sistem Fisika</strong>: Animasi pemain menjadi lebih halus dan realistis, termasuk berjalan, berlari, melompat, dan berbagai interaksi lainnya.</li>
+            <li><strong>Efek Pencahayaan dan Bayangan</strong>: Perubahan pada cara blok dan objek bergerak atau jatuh, menjadikan dunia Minecraft terasa lebih realistis.</li>
+        </ul>
+    
+        <h2>Gambarnya</h2>
+        <div class="image-gallery">
+            <img src="Weapons+.png" alt="Vein Miner Feature">
+            <img src="Screenshot 2024-11-02 152859.png" alt="Tree Capitate Feature">
+            <img src="Forest Craft.png" alt="Safari Nets Feature">
+            <img src="Forest Craft.png" alt="Safari Nets Feature">
+        </div>
+        
+
+        <h2>Vidionya kaga ada</h2>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/ovwKEI_KWSs" allowfullscreen></iframe>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="Realism (Texture).mcaddon" download>
+                <button>Download</button>
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 RealismCraft. Semua hak dilindungi.</p>
+    </footer>
+
+    
+    </script>
+    </body>
+    </html>
