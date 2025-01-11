@@ -479,6 +479,69 @@
             font-size: 1.5rem; /* Ukuran logo */
         }
         
+        @keyframes slideIn {
+    0% {
+        transform: translateX(100%); /* Mulai dari luar layar (kanan) */
+        opacity: 0; /* Awalnya transparan */
+    }
+    100% {
+        transform: translateX(0); /* Kembali ke posisi normal */
+        opacity: 1; /* Muncul sepenuhnya */
+    }
+}
+
+.custom-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #7e7e7e;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10000;
+    animation: slideIn 0.2s ease-out; /* Animasi slide-in + fade-in */
+}
+
+.notification-message {
+    margin-right: 15px; /* Jarak antara pesan dan tombol close */
+}
+
+.close-notification {
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.close-notification:hover {
+    color: #ccc; /* Warna saat hover */
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.custom-notification.hide {
+    animation: fadeOut 0.5s ease-out forwards; /* Animasi fade-out */
+}
+/* Tambahkan class hide untuk membuat latar belakang putih transparan */
+.hide {
+    transform: translateY(-100%);
+    transition: transform 0.5s ease-in-out;
+    opacity: 0;
+    background-color: transparent; /* Tambahkan background-color transparent untuk membuat latar belakang putih transparan */
+}
+
+        
     </style> 
 </head>
 <body> 
@@ -503,12 +566,17 @@
             </div>
     <nav>
         <div class="nav-content">
-            <a href="#" class="logo">
+            <a href="https://www.tiktok.com/@namakun" class="logo">
                 <i class="fab fa-tiktok"></i> <!-- Logo TikTok -->
                 Minecraft Modz
             </a>
             <div class="nav-links">
                 <!-- Link-link lainnya -->
+                 
+            </div>
+            <div id="custom-notification" class="custom-notification">
+                <span class="notification-message"></span>
+                <span class="close-notification">&times;</span>
             </div>
         </div>
     </nav>
@@ -617,4 +685,90 @@
     }, 2000); // Waktu tampilan loading screen (2 detik)
 });
     </script>
+    <script>
+        document.addEventListener('keydown', function(e) {
+    if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'U')) {
+        e.preventDefault();
+        alert('Inspect element is disabled on this page.');
+    }
+});
+    </script>
+    <script>
+        setInterval(function() {
+    const before = new Date().getTime();
+    debugger;
+    const after = new Date().getTime();
+    if (after - before > 100) {
+        alert('Developer Tools detected!');
+        window.location.reload(); // Atau tindakan lain yang Anda inginkan
+    }
+}, 1000);
 
+    </script>
+    <script>
+        function showNotification(message) {
+    const notification = document.getElementById('custom-notification');
+    const notificationMessage = notification.querySelector('.notification-message');
+    const closeButton = notification.querySelector('.close-notification');
+
+    // Set pesan notifikasi
+    notificationMessage.textContent = message;
+
+    // Tampilkan notifikasi
+    notification.style.display = 'flex';
+
+    // Tambahkan event listener untuk tombol close
+    closeButton.addEventListener('click', () => {
+        notification.style.display = 'none';
+    });
+
+    // Sembunyikan notifikasi setelah 5 detik (opsional)
+    setTimeout(() => {
+        notification.style.display = 'none';
+    }, 5000);
+}
+
+// Contoh penggunaan
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'U')) {
+        e.preventDefault();
+        showNotification('Inspect element is disabled on this page.');
+    }
+});
+
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    showNotification('Right-click is disabled on this page.');
+});
+    </script>
+    <script>
+        function showNotification(message) {
+    const notification = document.getElementById('custom-notification');
+    const notificationMessage = notification.querySelector('.notification-message');
+    const closeButton = notification.querySelector('.close-notification');
+
+    // Set pesan notifikasi
+    notificationMessage.textContent = message;
+
+    // Tampilkan notifikasi dengan animasi slide-in
+    notification.style.display = 'flex';
+    notification.classList.remove('hide'); // Hapus class hide jika ada
+
+    // Tambahkan event listener untuk tombol close
+    closeButton.addEventListener('click', () => {
+        notification.classList.add('hide'); // Tambahkan class hide untuk animasi fade-out
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 500); // Tunggu animasi fade-out selesai sebelum menghilangkan notifikasi
+    });
+
+    // Sembunyikan notifikasi setelah 5 detik dengan animasi fade-out
+    setTimeout(() => {
+        notification.classList.add('hide'); // Tambahkan class hide untuk animasi fade-out
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 500); // Tunggu animasi fade-out selesai sebelum menghilangkan notifikasi
+    }, 5000);
+}
+    </script>
+    
