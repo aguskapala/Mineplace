@@ -15,16 +15,116 @@
         :root { 
             --primary: #454350; 
             --secondary: #939393; 
-            --accent: #61e647; 
+            --accent: #a1a1a1; 
             --background: #a2a5a6; 
             --white: #e0e0e0; 
         } 
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-            font-family: 'Segoe UI', sans-serif; 
-        } 
+        /* Memuat font Minecraft */
+@font-face {
+    font-family: 'Minecraft';
+    src: url('fonts/Minecraft.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+/* Font Minecraft untuk teks */
+.minecraft-font {
+    font-family: 'Minecraft', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #e0e0e0;
+    text-align: center;
+}
+        
+        /* Loading Screen */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000; /* Background hitam */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+            /* Loading Content */
+            .loading-content {
+                text-align: center;
+                color: var(--white);
+            }
+
+            /* Loading Bar Container */
+        .loading-bar {
+            width: 300px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        /* Loading Progress */
+/* Loading Progress dengan Warna Hijau */
+.loading-progress {
+    width: 0;
+    height: 100%;
+    background-color: #00ff00; /* Warna hijau */
+    border-radius: 5px;
+    animation: loading 2s ease-in-out forwards;
+}
+
+/* Keyframes untuk animasi loading bar */
+@keyframes loading {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+/* Loading Text */
+/* Font yang besar dan bold */
+/* Memuat font Lemon Milk */
+@font-face {
+    font-family: 'LEMONMILK-Bold';
+    src: url('fonts/LEMONMILK-Bold.otf') format('opentype'),
+         url('fonts/LEMONMILK-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Animasi untuk setiap huruf */
+.loading-text span {
+    opacity: 0;
+    animation: fade-in 0.5s ease-in-out forwards;
+}
+
+/* Delay untuk setiap huruf */
+.loading-text span:nth-child(1) { animation-delay: 0.1s; } /* L */
+.loading-text span:nth-child(2) { animation-delay: 0.2s; } /* o */
+.loading-text span:nth-child(3) { animation-delay: 0.3s; } /* a */
+.loading-text span:nth-child(4) { animation-delay: 0.4s; } /* d */
+.loading-text span:nth-child(5) { animation-delay: 0.5s; } /* i */
+.loading-text span:nth-child(6) { animation-delay: 0.6s; } /* n */
+.loading-text span:nth-child(7) { animation-delay: 0.7s; } /* g */
+.loading-text span:nth-child(8) { animation-delay: 0.8s; } /* . */
+.loading-text span:nth-child(9) { animation-delay: 0.9s; } /* . */
+.loading-text span:nth-child(10) { animation-delay: 1s; } /* . */
+
+/* Keyframes untuk animasi fade-in */
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(10px); /* Geser ke bawah sedikit */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Kembali ke posisi awal */
+    }
+}
+
         body { 
             background-color: var(--background); 
             color: var(--white); 
@@ -46,11 +146,13 @@
             max-width: 1200px; 
             margin: 0 auto; 
         } 
-        .logo { 
-            font-size: 1.5rem; 
-            font-weight: 700; 
-            color: var(--primary); 
-            text-decoration: none; 
+        /* Font Supercartoon untuk logo */
+        .logo {
+            font-family: 'Supercartoon', sans-serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
         }
         .nav-links a { 
             color: var(--primary); 
@@ -117,7 +219,7 @@
 
         .download-card:hover {
         transform: translateY(-5px); /* Mengangkat kartu sedikit saat hover */
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Menambahkan bayangan yang lebih dalam saat hover */
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Menambahkan bayangan yang lebih dalam saat hover */
         }
 
         .card-image {
@@ -144,24 +246,75 @@
         flex-grow: 1; /* Memastikan paragraf tidak menyebabkan kartu memanjang */
         }
 
-        .download-btn { 
-            display: inline-flex; 
+        .download-btn {
+            display: inline-flex;
             align-items: center;
-            padding: 0.8rem 1.5rem; 
-            background: var(--primary); 
-            color: var(--white); 
-            text-decoration: none; 
-            border-radius: 25px; 
-            font-weight: 500; 
-            transition: all 0.3s; 
-        } 
+            padding: 0.8rem 1.5rem;
+            background: var(--primary); /* Warna background default */
+            color: var(--white); /* Warna teks default */
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent; /* Border transparan default */
+        }
         .download-btn i { 
             margin-right: 8px; 
         } 
-        .download-btn:hover { 
-            background: var(--accent); 
-            transform: scale(1.05); 
-        } 
+        .download-btn:hover {
+            background: var(--primary); /* Tetap gunakan warna background default */
+    border: 2px solid transparent; /* Tetap gunakan border transparan */
+    animation: rainbow-border 1s linear infinite; /* Animasi border warna-warni */
+}
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 70%);
+            transform: translate(-50%, -50%) rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+        .download-btn:hover::before {
+            opacity: 1;
+            width: 150%;
+            height: 150%;
+        }
+        @keyframes rainbow-border {
+    0% {
+        border-color: #ff0000; /* Merah */
+        box-shadow: 0 0 10px #ff0000; /* Glow merah */
+    }
+    16.67% {
+        border-color: #ff7f00; /* Oranye */
+        box-shadow: 0 0 10px #ff7f00; /* Glow oranye */
+    }
+    33.33% {
+        border-color: #ffff00; /* Kuning */
+        box-shadow: 0 0 10px #ffff00; /* Glow kuning */
+    }
+    50% {
+        border-color: #00ff00; /* Hijau */
+        box-shadow: 0 0 10px #00ff00; /* Glow hijau */
+    }
+    66.67% {
+        border-color: #0000ff; /* Biru */
+        box-shadow: 0 0 10px #0000ff; /* Glow biru */
+    }
+    83.33% {
+        border-color: #4b0082; /* Indigo */
+        box-shadow: 0 0 10px #4b0082; /* Glow indigo */
+    }
+    100% {
+        border-color: #9400d3; /* Violet */
+        box-shadow: 0 0 10px #9400d3; /* Glow violet */
+    }
+}
         /* Footer */ 
         footer { 
             background: var(--primary); 
@@ -174,31 +327,56 @@
             margin: 0 auto; 
             text-align: center; 
         }
+        .social-media {
+            display: flex;
+            gap: 20px; /* Jarak antara ikon */
+            justify-content: center;
+            margin-top: 20px;
+        }
         .social-links { 
             margin-top: 1.5rem; 
         } 
-        .social-links a { 
-            color: var(--white); 
-            margin: 0 1rem; 
-            font-size: 1.5rem; 
-            transition: color 0.3s; 
-        } 
-        .social-links a:hover { 
-            color: var(--accent); 
-        } 
-        @media (max-width: 768px) { 
-            .nav-content { 
-                flex-direction: column; 
-            } 
-            .nav-links { 
-                margin-top: 1rem; 
-            } 
-            .nav-links a { 
-                margin: 0 0.5rem; 
-            } 
-            .hero h1 { 
-                font-size: 2rem; 
-            } 
+        .social-link {
+            text-decoration: none;
+            color: #333; /* Warna default ikon */
+            font-size: 24px; /* Ukuran ikon */
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-link:hover {
+            color: #007bff; /* Warna saat hover */
+            transform: scale(1.2); /* Efek zoom saat hover */
+        }
+        .social-link i.fa-tiktok {
+            animation: rgb 1s linear infinite;
+    box-shadow: 0 0 10px #e4405f; /* Efek glow */
+}
+
+.social-link i.fa-tiktok:hover {
+    animation: rgb 1s linear infinite; /* Animasi warna RGB */
+}
+
+@keyframes rgb {
+    0% {
+        color: rgb(255, 0, 0); /* Merah */
+    }
+    16.67% {
+        color: rgb(255, 127, 0); /* Oranye */
+    }
+    33.33% {
+        color: rgb(255, 255, 0); /* Kuning */
+    }
+    50% {
+        color: rgb(0, 255, 0); /* Hijau */
+    }
+    66.67% {
+        color: rgb(0, 0, 255); /* Biru */
+    }
+    83.33% {
+        color: rgb(75, 0, 130); /* Indigo */
+    }
+    100% {
+        color: rgb(148, 0, 211); /* Violet */
+    }
         } 
         .search-container {
     position: relative;
@@ -287,35 +465,62 @@
             background-color: rgb(219, 218, 218); /* Warna latar belakang kotak */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan kotak */
         }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px; /* Jarak antara logo dan teks */
+            font-size: 1.5rem; /* Ukuran logo */
+        }
+        
     </style> 
-</head> 
+</head>
 <body> 
-    <nav> 
-        <div class="nav-content"> 
-            <a href="#" class="logo">Minecraft Modz</a> 
-            <div class="nav-links"> 
-                <a href="#rumah"></a> 
-                <a href="#aduhh"></a> 
-                <a href="#mood"></a> 
-                <a href="#apaya"></a>
-            </div> 
-        </div> 
-    </nav> 
+            <div id="loading-screen">
+                <div class="loading-content">
+                    <div class="loading-bar">
+                        <div class="loading-progress"></div>
+                    </div>
+                    <p class="loading-text">
+                        <span>L</span>
+                        <span>O</span>
+                        <span>A</span>
+                        <span>D</span>
+                        <span>I</span>
+                        <span>N</span>
+                        <span>G</span>
+                        <span>.</span>
+                        <span>.</span>
+                        <span>.</span>
+                    </p>
+                </div>
+            </div>
+    <nav>
+        <div class="nav-content">
+            <a href="#" class="logo">
+                <i class="fab fa-tiktok"></i> <!-- Logo TikTok -->
+                Minecraft Modz
+            </a>
+            <div class="nav-links">
+                <!-- Link-link lainnya -->
+            </div>
+        </div>
+    </nav>
     <section class="hero"> 
         <div class="hero-content"> 
-            <h1>Selamat datang di web MC Modz</h1> 
+            <h1 class="minecraft-font">Selamat datang di web MC Modz</h1> 
             <p>Website ini adalah tempat terbaik untuk menemukan dan mengunduh berbagai addon dan modifikasi untuk permainan Minecraft. Didedikasikan untuk para penggemar Minecraft, kami menawarkan koleksi addon yang beragam dan menarik, yang dirancang untuk meningkatkan pengalaman bermain Anda🫡🧏‍♂️❤️😊</p> 
         </div> 
     </section>
 </style>
 </head>
 <body>
-    <div class="tiktok-container">
-        <h1>Ikuti agus di TikTok</h1>
-        <a href="https://www.tiktok.com/@aguskoplangl?is_from_webapp=1&sender_device=pc" target="_blank" class="tiktok-logo">
-            <i class="fab fa-tiktok"></i>
-        </a>
-    </div>
     <section class="downloads"> 
         <div class="search-container"> 
             <input type="text" id="searchInput" placeholder="Search for add-ons or mods..." onkeyup="searchFunction()"> 
@@ -399,3 +604,17 @@
         <footer>
         <p>&copy; 2024 Minecraft Modz. Semua hak dilindungi.</p>
     </footer>
+    
+    <script>
+        window.addEventListener('load', function() {
+    const loadingScreen = document.getElementById('loading-screen');
+    setTimeout(function() {
+        loadingScreen.style.opacity = '0';
+        setTimeout(function() {
+            loadingScreen.style.display = 'none';
+            // Redirect ke halaman utama Aguskapala setelah loading selesai
+        }, 500); // Waktu transisi sebelum redirect
+    }, 2000); // Waktu tampilan loading screen (2 detik)
+});
+    </script>
+
