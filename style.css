@@ -1,101 +1,717 @@
-/* Tambahkan gaya untuk tombol */
-.download-btn {
-    background-color: var(--accent);
-    color: var(--white);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.download-btn:hover {
-    background-color: #28a745; /* Warna hijau lebih gelap saat hover */
-    transform: scale(1.05); /* Efek pembesaran saat hover */
-}
-
-/* Gaya untuk kartu unduhan */
-.download-card {
-    background: linear-gradient(to bottom, white, #333); /* Gradien dari putih ke hitam */
-    border-radius: 15px; 
-    overflow: hidden; 
-    transition: transform 0.3s; 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.download-card:hover {
-    transform: translateY(-5px); /* Efek mengangkat saat hover */
-}
-
-/* Gaya untuk teks */
-h3 {
-    color: var(--primary);
-    font-weight: bold;
-}
-
-p {
-    color: var(--secondary);
-}
-
-/* Gaya untuk hero section */
-.hero {
-    background: url('minecraft-bg.jpg') center/cover;
-    filter: brightness(70%); /* Gelapkan gambar latar belakang */
-}
-
-/* Gaya untuk footer */
-footer {
-    background-color: var(--background);
-    padding: 20px 0;
-    color: var(--white);
-    text-align: center;
-}
-
-.social-links a {
-    margin: 0 10px;
-    color: var(--white);
-    transition: color 0.3s;
-}
-
-.social-links a:hover {
-    color: var(--accent); /* Ubah warna saat hover */
-}
-
-/* Gaya untuk search input */
-.search-container input {
-    border: 2px solid var(--secondary);
-    border-radius: 25px;
-    padding: 10px;
-    font-size: 1rem;
-}
-body { 
-    background-color: #f0f0f0; /* Ubah menjadi warna abu-abu */
-    color: var(--primary); 
+:root { 
+    --primary: #454350; 
+    --secondary: #939393; 
+    --accent: #090909; 
+    --background: #a2a5a6; 
+    --white: #e0e0e0; 
 } 
-
-.search-container input:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 5px rgba(239, 35, 60, 0.5);
+/* Memuat font Minecraft */
+@font-face {
+font-family: 'Minecraft';
+src: url('fonts/Minecraft.ttf') format('truetype');
+font-weight: normal;
+font-style: normal;
+}    
+.minecraft-font {
+font-family: 'Minecraft', sans-serif;
+font-size: 24px;
+font-weight: bold;
+color: #FFFFFF !important; /* Ubah warna teks menjadi putih */
+text-align: center;
+text-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Tambahkan efek glow yang lebih kuat */
 }
-.hero {
-    height: 60vh; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
+/* Loading Screen */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff; /* Background hitam */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+    /* Loading Content */
+    .loading-content {
+        text-align: center;
+        color: var(--white);
+    }
+
+    /* Loading Bar Container */
+.loading-bar {
+    width: 300px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+/* Loading Progress */
+/* Loading Progress dengan Warna Hijau */
+.loading-progress {
+width: 0;
+height: 100%;
+background-color: #00ff00; /* Warna hijau */
+border-radius: 5px;
+animation: loading 2s ease-in-out forwards;
+}
+
+/* Keyframes untuk animasi loading bar */
+@keyframes loading {
+0% {
+width: 0;
+}
+100% {
+width: 100%;
+}
+}
+/* Loading Text */
+/* Font yang besar dan bold */
+/* Memuat font Lemon Milk */
+@font-face {
+font-family: 'LEMONMILK-Bold';
+src: url('fonts/LEMONMILK-Bold.otf') format('opentype'),
+ url('fonts/LEMONMILK-Bold.ttf') format('truetype');
+font-weight: bold;
+font-style: normal;
+}
+
+.loader {
+width: fit-content;
+height: fit-content;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.truckWrapper {
+width: 200px;
+height: 100px;
+display: flex;
+flex-direction: column;
+position: relative;
+align-items: center;
+justify-content: flex-end;
+overflow-x: hidden;
+}
+/* truck upper body */
+.truckBody {
+width: 130px;
+height: fit-content;
+margin-bottom: 6px;
+animation: motion 1s linear infinite;
+}
+/* truck suspension animation*/
+@keyframes motion {
+0% {
+transform: translateY(0px);
+}
+50% {
+transform: translateY(3px);
+}
+100% {
+transform: translateY(0px);
+}
+}
+/* truck's tires */
+.truckTires {
+position: absolute;
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+padding: 0px 10px 0px 15px;
+display: flex;
+justify-content: space-between;
+}
+
+.truckTires svg:first-child {
+margin-left: 15px;
+}
+
+.truckTires svg {
+width: 24px;
+margin: 0 5px;
+position: relative;
+bottom: 0;
+left: 0;
+transform: translateX(-50%);
+margin-left: 45px;
+}
+.road {
+width: 100%;
+height: 1.5px;
+background-color: #282828;
+position: relative;
+bottom: 0;
+align-self: flex-end;
+border-radius: 3px;
+}
+.road::before {
+content: "";
+position: absolute;
+width: 20px;
+height: 100%;
+background-color: #282828;
+right: -50%;
+border-radius: 3px;
+animation: roadAnimation 1.4s linear infinite;
+border-left: 10px solid white;
+}
+.road::after {
+content: "";
+position: absolute;
+width: 10px;
+height: 100%;
+background-color: #282828;
+right: -65%;
+border-radius: 3px;
+animation: roadAnimation 1.4s linear infinite;
+border-left: 4px solid white;
+}
+
+.lampPost {
+position: absolute;
+bottom: 0;
+right: -90%;
+height: 90px;
+animation: roadAnimation 1.4s linear infinite;
+}
+
+@keyframes roadAnimation {
+0% {
+transform: translateX(0px);
+}
+100% {
+transform: translateX(-350px);
+}
+}
+
+
+body {
+background-image: url('agua.png'); /* Ganti dengan nama file gambar Anda */
+background-size: cover; /* Atur ukuran gambar untuk menutupi seluruh layar */
+background-position: center; /* Atur posisi gambar di tengah layar */
+background-repeat: no-repeat; /* Jangan ulangi gambar */
+color: #FFFFFF !important; /* Ubah warna teks menjadi putih */
+}
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: transparent;
+    padding: 1rem 5%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: none;
+    backdrop-filter: blur(50px);
+    box-shadow: 0 0 50px rgb(245, 245, 245);
+    display: none;
+  } 
+
+.nav-content {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.nav-logo {
+font-size: 1.8rem; /* Ukuran font yang lebih besar */
+font-weight: bold;
+color: var(--primary);
+text-decoration: none;
+display: flex;
+align-items: center;
+font-family: 'LEMONMILK-Bold', sans-serif; /* Font yang lebih keren */
+}
+
+.nav-logo i {
+margin-right: 10px;
+font-size: 2rem; /* Ukuran logo yang lebih besar */
+}
+.nav-links a { 
+    color: var(--primary); 
+    text-decoration: none; 
+    margin-left: 2rem; 
+    font-weight: 500; 
+    transition: color 0.3s; 
+}
+.nav-links a:hover { 
+    color: var(--accent); 
+} 
+body { 
+    background-color: #d5d5d5; /* Ubah menjadi warna abu-abu */
+    color: #FFFFFF !important; /* Ubah warna teks menjadi putih */
+} 
+/* Downloads Section */ 
+.downloads {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 5% 6rem; /* Tambahkan padding-bottom untuk ruang footer */
+    border-radius: 15px;
+} 
+/* Container untuk grid card */
+/* Container untuk grid card */
+.downloads-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+gap: 4px; /* Tambahkan jarak 5px di antara card */
+padding: 20px;
+background-image: url('minecraft-bg.jpg');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-color: rgba(255, 255, 255, 0);
+}
+/* Styling untuk setiap card */
+/* Styling untuk setiap card */
+.download-card {
+position: relative;
+background: var(--white);
+border-radius: 15px;
+overflow: hidden;
+transition: transform 0.3s, box-shadow 0.3s;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+display: flex;
+flex-direction: column;
+align-items: center;
+border: 2px solid transparent; /* Border transparan default */
+position: relative; /* Untuk animasi border */
+width: 100%; /* Atur lebar card */
+max-width: 300px; /* Atur lebar maksimum card */
+margin: 0 auto; /* Pusatkan card di dalam grid */
+}
+.download-card .card-content h3 {
+    color: #353535; /* Ganti warna teks menjadi biru */
+  }
+  
+  .download-card .card-content p {
+    color: #414141; /* Ganti warna teks menjadi merah */
+  }
+
+.price-tag {
+position: absolute;
+top: 10px; /* Atur posisi harga di atas card */
+right: 10px; /* Atur posisi harga di samping kanan card */
+background-color: #ffffff; /* Atur warna latar belakang */
+color: #ffffff; /* Atur warna teks */
+font-size: 16px; /* Atur ukuran teks */
+font-weight: bold; /* Atur font teks */
+padding: 5px 10px; /* Atur padding harga */
+border-radius: 5px 5px 0 0; /* Atur sudut harga */
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan pada harga */
+border: 2px solid #ffffff; /* Tambahkan border putih */
+text-align: center; /* Atur posisi teks */
+}
+
+/* Efek hover untuk card */
+.download-card:hover {
+transform: translateY(-30px); /* Mengangkat card sedikit saat hover */
+box-shadow: 0 8px 100px rgba(0, 0, 0, 0.3); /* Menambahkan bayangan yang lebih dalam saat hover */
+animation: border-rotate 2s linear infinite; /* Animasi border saat hover */
+}
+
+/* Keyframes untuk animasi border */
+@keyframes border-rotate {
+0% {
+border-color: #007bff; /* Warna border biru */
+border-style: solid; /* Gaya border */
+border-width: 2px; /* Lebar border */
+}
+25% {
+border-color: #dc3545; /* Warna border merah */
+border-style: solid; /* Gaya border */
+border-width: 2px; /* Lebar border */
+}
+50% {
+border-color: #007bff; /* Warna border biru */
+border-style: solid; /* Gaya border */
+border-width: 2px; /* Lebar border */
+}
+75% {
+border-color: #dc3545; /* Warna border merah */
+border-style: solid; /* Gaya border */
+border-width: 2px; /* Lebar border */
+}
+100% {
+border-color: #007bff; /* Warna border biru */
+border-style: solid; /* Gaya border */
+border-width: 2px; /* Lebar border */
+}
+}
+
+/* Styling untuk gambar di dalam card */
+    .card-image {
+    width: 100%;
+    height: 200px; /* Atur tinggi gambar */
+    object-fit: cover; /* Pastikan gambar terpotong dengan baik */
+}
+
+/* Styling untuk konten di dalam card */
+.card-content {
+padding: 1.5rem;
+display: flex;
+flex-direction: column;
+justify-content: space-between; /* Pastikan jarak antara elemen */
+flex-grow: 1; /* Membuat konten mengisi ruang yang tersisa */
+height: 100%; /* Pastikan konten mengisi tinggi card */
+}
+
+/* Styling untuk judul di dalam card */
+.card-content h3 {
+    margin: 0 0 0.5rem 0; /* Atur margin untuk judul */
+}
+
+/* Styling untuk paragraf di dalam card */
+.card-content p {
+    margin: 0; /* Hilangkan margin untuk paragraf */
+    flex-grow: 1; /* Memastikan paragraf tidak menyebabkan card memanjang */
+}
+
+/* Styling untuk tombol download */
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    background: var(--primary); /* Warna background default */
+    color: var(--white); /* Warna teks default */
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent; /* Border transparan default */
+}
+.download-btn i { 
+    margin-right: 8px; 
+} 
+.download-btn:hover {
+    background: var(--primary); /* Tetap gunakan warna background default */
+border: 2px solid transparent; /* Tetap gunakan border transparan */
+animation: rainbow-border 1s linear infinite; /* Animasi border warna-warni */
+}
+.download-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 70%);
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+.download-btn:hover::before {
+    opacity: 1;
+    width: 150%;
+    height: 150%;
+}
+@keyframes rainbow-border {
+0% {
+border-color: #ff0000; /* Merah */
+box-shadow: 0 0 10px #ff0000; /* Glow merah */
+}
+16.67% {
+border-color: #ff7f00; /* Oranye */
+box-shadow: 0 0 10px #ff7f00; /* Glow oranye */
+}
+33.33% {
+border-color: #ffff00; /* Kuning */
+box-shadow: 0 0 10px #ffff00; /* Glow kuning */
+}
+50% {
+border-color: #00ff00; /* Hijau */
+box-shadow: 0 0 10px #00ff00; /* Glow hijau */
+}
+66.67% {
+border-color: #0000ff; /* Biru */
+box-shadow: 0 0 10px #0000ff; /* Glow biru */
+}
+83.33% {
+border-color: #4b0082; /* Indigo */
+box-shadow: 0 0 10px #4b0082; /* Glow indigo */
+}
+100% {
+border-color: #9400d3; /* Violet */
+box-shadow: 0 0 10px #9400d3; /* Glow violet */
+}
+}
+/* Footer */ 
+footer {
+position: relative;
+bottom: 0;
+left: 0;
+width: 100%;
+background: transparent;
+backdrop-filter: blur(35px);
+padding: 1rem 0;
+text-align: center; /* Tambahkan ini untuk membuat teks berada di tengah */
+z-index: 1000;
+margin: 0;
+border: none;
+box-sizing: border-box;
+height: 100px;
+transition: bottom 0.5s ease;
+font-size: 20px;
+text-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+color: #000000 !important;
+font-family: 'LEMONMILK-Bold', sans-serif; /* Ubah font menjadi Lemon Milk */
+}
+
+footer.scroll-up {
+    bottom: 150px; /* Ubah nilai ini untuk menyembunyikan footer sepenuhnya */
+    font-family: 'LEMONMILK-Bold', sans-serif; /* Ubah font menjadi Lemon Milk */
+}
+
+footer p {
+margin: 0 auto; /* Tambahkan ini untuk membuat teks berada di tengah */
+text-align: center; /* Tambahkan ini untuk membuat teks berada di tengah */
+}
+        .footer-content {
+            max-width: 1200px; 
+    margin: 0 auto; 
     text-align: center; 
-    background: linear-gradient(rgba(43, 45, 66, 0.9), rgba(43, 45, 66, 0.9)), url('minecraft-bg.jpg') center/cover;
-    color: var(--white); 
-    margin-top: 60px; 
+    background-color: #000000; /* Ubah menjadi transparan */
+    backdrop-filter: blur(50px); /* Tambahkan efek blur 50px */
+    border-radius: 20px; /* Tambahkan efek radius */
+    padding: 20px; /* Tambahkan efek padding */
+    backdrop-filter: 1000px;
+}
+.footer-content p {
+    color: #000000; /* Ubah warna teks menjadi putih */
+    font-size: 1.5rem; /* Ubah ukuran teks */
+    font-weight: bold; /* Ubah font menjadi bold */
+    text-shadow: 0 0 100px rgba(0, 0, 0, 0.5); /* Tambahkan efek glow */
+}
+
+.social-media {
+    display: flex;
+    gap: 20px; /* Jarak antara ikon */
+    justify-content: center;
+    margin-top: 20px;
+}
+.social-links { 
+    margin-top: 1.5rem; 
+} 
+.social-link {
+    text-decoration: none;
+    color: #333; /* Warna default ikon */
+    font-size: 24px; /* Ukuran ikon */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.social-link:hover {
+    color: #007bff; /* Warna saat hover */
+    transform: scale(1.2); /* Efek zoom saat hover */
+}
+.social-link i.fa-tiktok {
+    animation: rgb 1s linear infinite;
+box-shadow: 0 0 10px #e4405f; /* Efek glow */
+}
+
+.social-link i.fa-tiktok:hover {
+animation: rgb 1s linear infinite; /* Animasi warna RGB */
+}
+
+@keyframes rgb {
+0% {
+color: rgb(255, 0, 0); /* Merah */
+}
+16.67% {
+color: rgb(255, 127, 0); /* Oranye */
+}
+33.33% {
+color: rgb(255, 255, 0); /* Kuning */
+}
+50% {
+color: rgb(0, 255, 0); /* Hijau */
+}
+66.67% {
+color: rgb(0, 0, 255); /* Biru */
+}
+83.33% {
+color: rgb(75, 0, 130); /* Indigo */
+}
+100% {
+color: rgb(148, 0, 211); /* Violet */
+}
+} 
+.search-container {
+position: relative;
+max-width: 600px; /* Atur lebar maksimum */
+margin: 2rem auto; /* Pusatkan di halaman */
+}
+
+#searchInput {
+width: calc(100% - 120px); /* Atur lebar input agar sesuai dengan tombol */
+padding: 1rem 2rem; /* Padding untuk input */
+border: 2px solid #6580ae; /* Border yang lebih tebal */
+border-radius: 30px; /* Sudut yang lebih membulat */
+font-size: 1rem; /* Ukuran font yang lebih besar */
+transition: border-color 0.3s, box-shadow 0.3s; /* Transisi halus */
+}
+
+#searchInput:focus {
+border-color: #61e647; /* Ganti warna border saat fokus */
+box-shadow: 0 0 5px rgba(97, 230, 71, 0.5); /* Tambahkan shadow saat fokus */
+outline: none; /* Hilangkan outline default */
+}
+
+.search-btn {
+background-color: #2B2D42; /* Warna latar belakang tombol */
+color: #e0e0e0; /* Warna teks tombol */
+border: none;
+border-radius: 30px;
+padding: 0.8rem 1.5rem;
+cursor: pointer;
+margin-left: 10px; /* Jarak antara input dan tombol */
+transition: background-color 0.3s, transform 0.3s;
+}
+
+.search-btn:hover {
+background-color: #61e647; /* Ganti warna latar belakang saat hover */
+transform: scale(1.05); /* Efek zoom saat hover */
+}
+/* CSS untuk .hero */
+.hero {
+height: 60vh; 
+display: flex; 
+align-items: center; 
+justify-content: center; 
+text-align: center; 
+background-color: transparent; /* Hilangkan background warna biru tua */
+color: var(--white); 
+margin-top: 60px; 
+background-image: none; /* Hilangkan background image */
+background: none; /* Hilangkan background secara keseluruhan */
+color: #ffff !important;
 }
 
 .hero-content {
-    background-color: white; /* Mengubah latar belakang menjadi putih */
-    padding: 2rem; /* Menambahkan padding untuk ruang di sekitar teks */
-    border-radius: 15px; /* Menambahkan sudut yang membulat */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Menambahkan bayangan untuk efek kedalaman */
+display: flex; 
+flex-direction: column; 
+align-items: center; 
+justify-content: center; 
+text-align: center; 
+background-color: transparent; /* Hilangkan background warna biru tua */
+padding: 0; 
+border-radius: 0; 
+box-shadow: none; 
+color: #000000 !important;
 }
 
-.hero h1, .hero p {
-    color: black; /* Mengubah warna teks menjadi hitam */
+.hero h1 {
+font-size: 3rem;
+margin-bottom: 1rem;
+color: #000000 !important; /* Ubah warna teks menjadi putih */
+text-shadow: 0 0 50px rgba(0, 0, 0, 0.5); /* Tambahkan efek bayangan untuk teks */
+}
+.hero-content h1 {
+color: #585858 !important; /* Ubah warna teks menjadi putih */
+}
+.tiktok-logo {
+font-size: 3rem; /* Ukuran ikon yang lebih kecil */
+    color: #000; /* Warna ikon */
+    transition: color 0.5s; /* Transisi warna saat hover */
+    display: inline-block; /* Agar padding berfungsi */
+    margin: 0.5rem 0; /* Jarak atas dan bawah yang lebih kecil */
+    padding: 0.4rem; /* Ruang di dalam logo, disesuaikan agar kotak lebih pas */
+    border-radius: 10px; /* Sudut membulat untuk logo */
+    background-color: #86868676; /* Warna latar belakang logo */
 }
 
+.tiktok-logo:hover {
+    color: #69c9d0; /* Ganti warna saat hover */
+    background-color: #d0d0d0; /* Ganti warna latar belakang saat hover */
+}
+
+
+.tiktok-container {
+    text-align: center;
+    border: 2px solid #727272; /* Warna border */
+    border-radius: 20px; /* Sudut membulat */
+    padding: 2rem; /* Ruang di dalam kotak */
+    background-color: rgb(219, 218, 218); /* Warna latar belakang kotak */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan kotak */
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    margin-right: 10px; /* Jarak antara logo dan teks */
+    font-size: 1.5rem; /* Ukuran logo */
+}
+
+@keyframes slideIn {
+0% {
+transform: translateX(100%); /* Mulai dari luar layar (kanan) */
+opacity: 0; /* Awalnya transparan */
+}
+100% {
+transform: translateX(0); /* Kembali ke posisi normal */
+opacity: 1; /* Muncul sepenuhnya */
+}
+}
+
+.custom-notification {
+position: fixed;
+top: 20px;
+right: 20px;
+background-color: #7e7e7e;
+color: white;
+padding: 15px 20px;
+border-radius: 5px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+display: none;
+align-items: center;
+justify-content: space-between;
+z-index: 10000;
+animation: slideIn 0.2s ease-out; /* Animasi slide-in + fade-in */
+}
+
+.notification-message {
+margin-right: 15px; /* Jarak antara pesan dan tombol close */
+}
+
+.close-notification {
+cursor: pointer;
+font-size: 20px;
+font-weight: bold;
+color: white;
+}
+
+.close-notification:hover {
+color: #ccc; /* Warna saat hover */
+}
+
+@keyframes fadeOut {
+0% {
+opacity: 1;
+}
+100% {
+opacity: 0;
+}
+}
+
+.custom-notification.hide {
+animation: fadeOut 0.5s ease-out forwards; /* Animasi fade-out */
+}
+/* Tambahkan class hide untuk membuat latar belakang putih transparan */
+.hide {
+transform: translateY(-100%);
+transition: transform 0.5s ease-in-out;
+opacity: 0;
+background-color: transparent; /* Tambahkan background-color transparent untuk membuat latar belakang putih transparan */
+}    
