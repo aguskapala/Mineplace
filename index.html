@@ -3,7 +3,7 @@
 <head> 
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minecraft</title>
+    <title>Joki Kugru</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
     <link rel="stylesheet" href="style.css">
     </head>
@@ -94,35 +94,116 @@
     font-style: normal;
 }
 
-/* Animasi untuk setiap huruf */
-.loading-text span {
-    opacity: 0;
-    animation: fade-in 0.5s ease-in-out forwards;
+.loader {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Delay untuk setiap huruf */
-.loading-text span:nth-child(1) { animation-delay: 0.1s; } /* L */
-.loading-text span:nth-child(2) { animation-delay: 0.2s; } /* o */
-.loading-text span:nth-child(3) { animation-delay: 0.3s; } /* a */
-.loading-text span:nth-child(4) { animation-delay: 0.4s; } /* d */
-.loading-text span:nth-child(5) { animation-delay: 0.5s; } /* i */
-.loading-text span:nth-child(6) { animation-delay: 0.6s; } /* n */
-.loading-text span:nth-child(7) { animation-delay: 0.7s; } /* g */
-.loading-text span:nth-child(8) { animation-delay: 0.8s; } /* . */
-.loading-text span:nth-child(9) { animation-delay: 0.9s; } /* . */
-.loading-text span:nth-child(10) { animation-delay: 1s; } /* . */
-
-/* Keyframes untuk animasi fade-in */
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-        transform: translateY(10px); /* Geser ke bawah sedikit */
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0); /* Kembali ke posisi awal */
-    }
+.truckWrapper {
+  width: 200px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: flex-end;
+  overflow-x: hidden;
 }
+/* truck upper body */
+.truckBody {
+  width: 130px;
+  height: fit-content;
+  margin-bottom: 6px;
+  animation: motion 1s linear infinite;
+}
+/* truck suspension animation*/
+@keyframes motion {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+/* truck's tires */
+.truckTires {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0px 10px 0px 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.truckTires svg:first-child {
+  margin-left: 15px;
+}
+
+.truckTires svg {
+  width: 24px;
+  margin: 0 5px;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-50%);
+  margin-left: 45px;
+}
+.road {
+  width: 100%;
+  height: 1.5px;
+  background-color: #282828;
+  position: relative;
+  bottom: 0;
+  align-self: flex-end;
+  border-radius: 3px;
+}
+.road::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  background-color: #282828;
+  right: -50%;
+  border-radius: 3px;
+  animation: roadAnimation 1.4s linear infinite;
+  border-left: 10px solid white;
+}
+.road::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  background-color: #282828;
+  right: -65%;
+  border-radius: 3px;
+  animation: roadAnimation 1.4s linear infinite;
+  border-left: 4px solid white;
+}
+
+.lampPost {
+  position: absolute;
+  bottom: 0;
+  right: -90%;
+  height: 90px;
+  animation: roadAnimation 1.4s linear infinite;
+}
+
+@keyframes roadAnimation {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-350px);
+  }
+}
+
 
 body {
     background-image: url('agua.png'); /* Ganti dengan nama file gambar Anda */
@@ -194,20 +275,20 @@ nav.scroll-down {
        /* Container untuk grid card */
 /* Container untuk grid card */
 .downloads-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Atur lebar card */
-    gap: 0; /* Jarak antar card */
-    padding: 20px; /* Padding untuk responsif */
-    background-image: url('minecraft-bg.jpg'); /* Tambahkan background image */
-    background-size: cover; /* Atur ukuran background image */
-    background-position: center; /* Atur posisi background image */
-    background-repeat: no-repeat; /* Atur pengulangan background image */
-    background-color: rgba(255, 255, 255, 0); /* Tambahkan background color transparan */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 4px; /* Tambahkan jarak 5px di antara card */
+  padding: 20px;
+  background-image: url('minecraft-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(255, 255, 255, 0);
 }
-
 /* Styling untuk setiap card */
 /* Styling untuk setiap card */
 .download-card {
+    position: relative;
     background: var(--white);
     border-radius: 15px;
     overflow: hidden;
@@ -221,6 +302,21 @@ nav.scroll-down {
     width: 100%; /* Atur lebar card */
     max-width: 300px; /* Atur lebar maksimum card */
     margin: 0 auto; /* Pusatkan card di dalam grid */
+}
+
+    .price-tag {
+    position: absolute;
+    top: 10px; /* Atur posisi harga di atas card */
+    right: 10px; /* Atur posisi harga di samping kanan card */
+    background-color: #ff9900; /* Atur warna latar belakang */
+    color: #ffffff; /* Atur warna teks */
+    font-size: 16px; /* Atur ukuran teks */
+    font-weight: bold; /* Atur font teks */
+    padding: 5px 10px; /* Atur padding harga */
+    border-radius: 5px 5px 0 0; /* Atur sudut harga */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan pada harga */
+    border: 2px solid #ffffff; /* Tambahkan border putih */
+    text-align: center; /* Atur posisi teks */
 }
 
 /* Efek hover untuk card */
@@ -630,25 +726,140 @@ nav.scroll-down {
     </style> 
 </head>
 <body> 
-            <div id="loading-screen">
-                <div class="loading-content">
-                    <div class="loading-bar">
-                        <div class="loading-progress"></div>
-                    </div>
-                    <p class="loading-text">
-                        <span>L</span>
-                        <span>O</span>
-                        <span>A</span>
-                        <span>D</span>
-                        <span>I</span>
-                        <span>N</span>
-                        <span>G</span>
-                        <span>.</span>
-                        <span>.</span>
-                        <span>.</span>
-                    </p>
-                </div>
-            </div>
+    <div id="loading-screen">
+    <div class="loader">
+        <div class="truckWrapper">
+          <div class="truckBody">
+            <div class="road">
+                <div class="lampPost"></div>
+              </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 198 93"
+              class="trucksvg"
+            >
+              <path
+                stroke-width="3"
+                stroke="#282828"
+                fill="#F83D3D"
+                d="M135 22.5H177.264C178.295 22.5 179.22 23.133 179.594 24.0939L192.33 56.8443C192.442 57.1332 192.5 57.4404 192.5 57.7504V89C192.5 90.3807 191.381 91.5 190 91.5H135C133.619 91.5 132.5 90.3807 132.5 89V25C132.5 23.6193 133.619 22.5 135 22.5Z"
+              ></path>
+              <path
+                stroke-width="3"
+                stroke="#282828"
+                fill="#7D7C7C"
+                d="M146 33.5H181.741C182.779 33.5 183.709 34.1415 184.078 35.112L190.538 52.112C191.16 53.748 189.951 55.5 188.201 55.5H146C144.619 55.5 143.5 54.3807 143.5 53V36C143.5 34.6193 144.619 33.5 146 33.5Z"
+              ></path>
+              <path
+                stroke-width="2"
+                stroke="#282828"
+                fill="#282828"
+                d="M150 65C150 65.39 149.763 65.8656 149.127 66.2893C148.499 66.7083 147.573 67 146.5 67C145.427 67 144.501 66.7083 143.873 66.2893C143.237 65.8656 143 65.39 143 65C143 64.61 143.237 64.1344 143.873 63.7107C144.501 63.2917 145.427 63 146.5 63C147.573 63 148.499 63.2917 149.127 63.7107C149.763 64.1344 150 64.61 150 65Z"
+              ></path>
+              <rect
+                stroke-width="2"
+                stroke="#282828"
+                fill="#FFFCAB"
+                rx="1"
+                height="7"
+                width="5"
+                y="63"
+                x="187"
+              ></rect>
+              <rect
+                stroke-width="2"
+                stroke="#282828"
+                fill="#282828"
+                rx="1"
+                height="11"
+                width="4"
+                y="81"
+                x="193"
+              ></rect>
+              <rect
+                stroke-width="3"
+                stroke="#282828"
+                fill="#DFDFDF"
+                rx="2.5"
+                height="90"
+                width="121"
+                y="1.5"
+                x="6.5"
+              ></rect>
+              <rect
+                stroke-width="2"
+                stroke="#282828"
+                fill="#DFDFDF"
+                rx="2"
+                height="4"
+                width="6"
+                y="84"
+                x="1"
+              ></rect>
+            </svg>
+          </div>
+          <div class="truckTires">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 30 30"
+              class="tiresvg"
+            >
+              <circle
+                stroke-width="3"
+                stroke="#282828"
+                fill="#282828"
+                r="13.5"
+                cy="15"
+                cx="15"
+              ></circle>
+              <circle fill="#DFDFDF" r="7" cy="15" cx="15"></circle>
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 30 30"
+              class="tiresvg"
+            >
+              <circle
+                stroke-width="3"
+                stroke="#282828"
+                fill="#282828"
+                r="13.5"
+                cy="15"
+                cx="15"
+              ></circle>
+              <circle fill="#DFDFDF" r="7" cy="15" cx="15"></circle>
+            </svg>
+          </div>
+          <div class="road"></div>
+      
+          <svg
+            xml:space="preserve"
+            viewBox="0 0 453.459 453.459"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns="http://www.w3.org/2000/svg"
+            id="Capa_1"
+            version="1.1"
+            fill="#000000"
+            class="lampPost"
+          >
+            <path
+              d="M252.882,0c-37.781,0-68.686,29.953-70.245,67.358h-6.917v8.954c-26.109,2.163-45.463,10.011-45.463,19.366h9.993
+      c-1.65,5.146-2.507,10.54-2.507,16.017c0,28.956,23.558,52.514,52.514,52.514c28.956,0,52.514-23.558,52.514-52.514
+      c0-5.478-0.856-10.872-2.506-16.017h9.992c0-9.354-19.352-17.204-45.463-19.366v-8.954h-6.149C200.189,38.779,223.924,16,252.882,16
+      c29.952,0,54.32,24.368,54.32,54.32c0,28.774-11.078,37.009-25.105,47.437c-17.444,12.968-37.216,27.667-37.216,78.884v113.914
+      h-0.797c-5.068,0-9.174,4.108-9.174,9.177c0,2.844,1.293,5.383,3.321,7.066c-3.432,27.933-26.851,95.744-8.226,115.459v11.202h45.75
+      v-11.202c18.625-19.715-4.794-87.527-8.227-115.459c2.029-1.683,3.322-4.223,3.322-7.066c0-5.068-4.107-9.177-9.176-9.177h-0.795
+      V196.641c0-43.174,14.942-54.283,30.762-66.043c14.793-10.997,31.559-23.461,31.559-60.277C323.202,31.545,291.656,0,252.882,0z
+      M232.77,111.694c0,23.442-19.071,42.514-42.514,42.514c-23.442,0-42.514-19.072-42.514-42.514c0-5.531,1.078-10.957,3.141-16.017
+      h78.747C231.693,100.736,232.77,106.162,232.77,111.694z"
+            ></path>
+          </svg>
+        </div>
+      </div>
+      
             <nav>
                 <div class="nav-content">
                     <div class="nav-logo">
@@ -670,25 +881,24 @@ nav.scroll-down {
     </nav>
     <section class="hero"> 
         <div class="hero-content"> 
-            <h1 class="minecraft-font">Selamat datang di web MC Modz</h1>  
+            <h1 class="minecraft-font">Selamat datang di Web Joki Kugru</h1>  
         </div> 
     </section>
 </style>
 </head>
 <body>
-    <section class="downloads"> 
-        <div class="search-container"> 
-            <input type="text" id="searchInput" placeholder="Search for add-ons or mods..." onkeyup="searchFunction()"> 
-        </div>
+
+    
         
         <div class="downloads-grid">
             <!-- Card 1 -->
-            <div class="download-card" data-title="World Utilities Add-On">
+            <div class="download-card">
+                <div class="price-tag">Rp 10.000</div>
                 <img src="download.png" alt="World Utilities" class="card-image">
                 <div class="card-content">
                     <h3>World Utilities Add-On</h3>
                     <p>Nanti kalo lu download adon ini jadi ada pickaxe mining 3x3 cuy😱.</p>
-                    <a href="https://direct-link.net/1279202/world-utilies-addon" class="download-btn">
+                    <a href="https://aguskapala.github.io/Worldutilies.html" class="download-btn">
                         <i class="fas fa-download"></i>
                         Download
                     </a>
@@ -700,7 +910,7 @@ nav.scroll-down {
                 <div class="card-content">
                     <h3>Dwellers Addon</h3>
                     <p>ketika lu download adon ini jadinya di world lu ada monster muka ancur😱🧏‍♂️.</p>
-                    <a href="https://direct-link.net/1279202/dwellers-addon" class="download-btn">
+                    <a href="https://aguskapala.github.io/Dwellers.html" class="download-btn">
                         <i class="fas fa-download"></i>
                         Download
                     </a>
@@ -712,7 +922,7 @@ nav.scroll-down {
                 <div class="card-content">
                     <h3>Realism 1 4</h3>
                     <p>kalo lu download mod ini kelen menkrep kalen jadi lebih menarik dan ada bangunan tambahan 😱.</p>
-                    <a href="https://link-hub.net/1279202/realism-1-4" class="download-btn">
+                    <a href="https://aguskapala.github.io/Realism%201.4.html" class="download-btn">
                         <i class="fas fa-download"></i>
                         Download
                     </a>
@@ -724,7 +934,7 @@ nav.scroll-down {
                 <div class="card-content">
                     <h3>Pirate era add-on</h3>
                     <p>pirate era, addon ini menambahkan kapal dan mekanik lainnya di world lu⭐🏴‍☠️! ✨</p>
-                    <a href="https://link-center.net/1279202/pirate-era-addon" class="download-btn">
+                    <a href="https://aguskapala.github.io/Pirate%20era.html" class="download-btn">
                         <i class="fas fa-download"></i>
                         Download
                     </a>
@@ -736,7 +946,7 @@ nav.scroll-down {
                 <div class="card-content">
                     <h3>Forest craft add-on</h3>
                     <p>Forest adon, di adon ini di world kalian ada pohon baru dan bisa crafting beberapa jenis crafting di world kalian!🌳🌲</p>
-                    <a href="https://direct-link.net/1279202/forest-craft" class="download-btn">
+                    <a href="https://aguskapala.github.io/Forest%20craft.html" class="download-btn">
                         <i class="fas fa-download"></i>
                         Download
                     </a>
@@ -748,7 +958,7 @@ nav.scroll-down {
                 <div class="card-content">
                     <h3>Transformers</h3>
                     <p>di transformer kalian bakal jadi robot sesuka kalian kaya bumblebe optimus prime dan itu melawan monster jahat di kota!🤖😱</p>
-                    <a href="https://link-target.net/1279202/transformers" class="download-btn">
+                    <a href="https://aguskapala.github.io/Transformers.html" class="download-btn">
                         <i class="fas fa-download"></i>
                         Download
                     </a>
@@ -801,24 +1011,48 @@ nav.scroll-down {
 });
     </script>
     <script>
-        window.addEventListener('load', function() {
-    const loadingScreen = document.getElementById('loading-screen');
+        // Fungsi untuk membuat loading screen
+function loadingScreen() {
+  const loadingScreen = document.getElementById('loading-screen');
+  const truck = document.querySelector('.truckWrapper');
+  const road = document.querySelector('.road');
+  const lamp = document.querySelector('.lampPost');
+  const nav = document.querySelector('nav');
+
+  // Animasi truk merah
+  truck.style.animation = 'motion 1s linear infinite';
+
+  // Animasi jalan
+  road.style.animation = 'move 1.4s linear infinite';
+
+  // Animasi lampu
+  lamp.style.animation = 'move 1.4s linear infinite';
+
+  // Hilangkan nav
+  nav.style.display = 'none';
+
+  // Fungsi untuk mengatur animasi
+  function animate() {
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  // Fungsi untuk menghilangkan loading screen
+  function hideLoadingScreen() {
+    loadingScreen.style.opacity = '0';
     setTimeout(function() {
-        loadingScreen.style.opacity = '0';
-        setTimeout(function() {
-            loadingScreen.style.display = 'none';
-            // Redirect ke halaman utama Aguskapala setelah loading selesai
-        }, 500); // Waktu transisi sebelum redirect
-    }, 2000); // Waktu tampilan loading screen (2 detik)
-});
-    </script>
-    <script>
-        document.addEventListener('keydown', function(e) {
-    if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'U')) {
-        e.preventDefault();
-        alert('Inspect element is disabled on this page.');
-    }
-});
+      loadingScreen.style.display = 'none';
+      nav.style.display = 'block'; // Tampilkan nav kembali
+    }, 2000);
+  }
+
+  // Tunggu 2 detik sebelum menghilangkan loading screen
+  setTimeout(hideLoadingScreen, 2000);
+}
+
+// Jalankan fungsi loading screen
+loadingScreen();
     </script>
     <script>
         setInterval(function() {
@@ -900,4 +1134,5 @@ document.addEventListener('contextmenu', function(e) {
     </script>
     <script>
         
+    </script>
     </script>
